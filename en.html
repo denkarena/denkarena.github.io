@@ -1,17 +1,106 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Brain games for every day – DenkArena</title><meta name="robots" content="index,follow"><style>:root{--bg:#0f1513;--card:#18211e;--text:#ece5d5;--muted:#a3aba4;--brass:#c9a45c;--brass-hi:#e6cf96;--line:rgba(232,220,192,.14)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-main{max-width:760px;margin:0 auto;padding:28px 18px 60px}
-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:26px}
-.brand{font:400 24px Georgia,serif;letter-spacing:.02em;color:var(--text);text-decoration:none}.brand b{color:var(--brass-hi);font-weight:400}
-nav{display:flex;gap:14px;flex-wrap:wrap;font-size:14px}nav a,footer a{color:var(--muted)}a{color:var(--brass-hi)}
-h1,h3{font:400 30px/1.2 Georgia,serif;margin:0 0 6px}h2{font:400 22px Georgia,serif;margin:28px 0 8px}h4{margin:22px 0 4px;font-size:17px}
-.muted,.small{color:var(--muted)}.small{font-size:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:16px 0}
-ol li,ul li{margin:4px 0}footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:14px;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap}</style></head><body><main>
-<header><a class="brand" href="en.html">Denk<b>Arena</b></a><nav><a href="index.html">Deutsch</a></nav></header>
-<h1>DenkArena</h1><p class="muted">Brain games for every day</p>
-<p>Chess with ten strength levels, chess puzzles, Sudoku, Minesweeper, Connect Four and <b>Wandelzug</b>, the daily puzzle where your piece changes with every move.</p>
-<div class="card"><h4 style="margin-top:0">Download</h4><p>Coming soon to Google Play and the App Store.</p></div>
-<h2>Contact</h2><p><a href="mailto:support@denkarena.com">support@denkarena.com</a></p>
-<footer><a href="privacy.html">Privacy</a><a href="terms.html">Terms of use</a><a href="legal-notice.html">Legal notice</a><a href="delete-account.html">Delete account</a></footer>
-</main></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>DenkArena – Brain games for every day</title><meta name="description" content="Chess, chess puzzles, Sudoku, Minesweeper, Connect Four and Wandelzug, the puzzle where your piece turns into another one with every move. For Android."><meta name="theme-color" content="#0f1513">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%2216%2013%2088%2088%22%3E%3Crect%20x%3D%2216%22%20y%3D%2213%22%20width%3D%2288%22%20height%3D%2288%22%20rx%3D%2218%22%20fill%3D%22%230f1513%22%2F%3E%3Cpath%20d%3D%22M58.5%2092H34v-6h6.5L44.5%2058C42.5%2055%2041%2052.5%2040.5%2050L30%2052.5l-4-2.5%204.5-3-6%20.2-1.5-7L36.5%2026c4-4.5%209.5-7%2014-8l3.5-6%204.5%203.5z%22%20fill%3D%22%23ece5d5%22%2F%3E%3Ccircle%20cx%3D%2244%22%20cy%3D%2228%22%20r%3D%222.7%22%20fill%3D%22%230f1513%22%2F%3E%3Cpath%20d%3D%22M61.5%2092H86v-6h-6.5l-4.5-30V43l6-5V19h-5.5v6H71v-6h-4.5v6h-5z%22%20fill%3D%22%23c9a45c%22%2F%3E%3C%2Fsvg%3E"><link rel="canonical" href="https://denkarena.com/en.html">
+<link rel="alternate" hreflang="de" href="https://denkarena.com/"><link rel="alternate" hreflang="en" href="https://denkarena.com/en.html">
+<meta property="og:title" content="DenkArena – Brain games for every day"><meta property="og:description" content="Chess, chess puzzles, Sudoku, Minesweeper, Connect Four and Wandelzug, the puzzle where your piece turns into another one with every move. For Android."><meta property="og:image" content="https://denkarena.com/img/og.png"><meta property="og:type" content="website">
+<link rel="preload" href="fonts/marcellus.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:"Marcellus";src:url(fonts/marcellus.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";src:url(fonts/manrope.woff2) format("woff2");font-weight:200 800;font-display:swap}
+@font-face{font-family:"DA Chess";src:url(fonts/chess.woff2) format("woff2");unicode-range:U+2654-265F;font-display:block}
+:root{--bg:#0f1513;--bg2:#131b18;--card:#18211e;--card2:#1f2a26;--text:#ece5d5;--muted:#a3aba3;--faint:#6e7971;--brass:#c9a45c;--brass-hi:#e6cf96;--brass-lo:#8a6d33;--light:#e9e2cf;--dark:#5f7c66;--line:rgba(232,220,192,.1);--line2:rgba(232,220,192,.18)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 "Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(900px 520px at 78% -8%,rgba(201,164,92,.13),transparent 60%),radial-gradient(700px 500px at -10% 30%,rgba(95,124,102,.16),transparent 60%)}
+a{color:var(--brass-hi)}img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Marcellus",Georgia,serif;font-weight:400;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:clamp(40px,6.4vw,68px)}h2{font-size:clamp(30px,4vw,44px)}h3{font-size:22px}
+p{margin:0}.muted{color:var(--muted)}
+/* Kopf */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+.brand{display:flex;align-items:center;gap:10px;color:var(--text);text-decoration:none;font:400 26px "Marcellus",Georgia,serif}.brand b{font-weight:400;color:var(--brass-hi)}
+.top nav{display:flex;align-items:center;gap:22px;font-size:15px}.top nav a{color:var(--muted);text-decoration:none}.top nav a:hover{color:var(--text)}
+.top nav .lang{padding:6px 12px;border:1px solid var(--line2);border-radius:999px;color:var(--text)}
+@media (max-width:720px){.top nav a:not(.lang){display:none}}
+/* Einstieg */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:40px 0 70px}
+.eyebrow{display:inline-block;font-size:14px;font-weight:600;color:var(--brass-hi);margin-bottom:16px}
+.lead{font-size:19px;color:var(--muted);margin:22px 0 30px;max-width:34em}
+.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:14px;font-weight:700;font-size:16px;text-decoration:none;border:0}
+.btn.primary{background:linear-gradient(180deg,var(--brass-hi),var(--brass));color:#1a1408}
+.btn.soon{background:var(--card2);color:var(--muted);border:1px solid var(--line2);cursor:default}
+.btn svg{width:20px;height:20px}
+.note{font-size:14px;color:var(--faint);margin-top:14px;max-width:32em}.note a{color:var(--muted)}
+.phone{position:relative;justify-self:center;width:min(310px,78vw);aspect-ratio:390/822;border-radius:44px;padding:11px;background:linear-gradient(160deg,#2a3631,#151c19);box-shadow:0 0 0 1px var(--line2),0 40px 80px -20px rgba(0,0,0,.7),0 0 120px -30px rgba(201,164,92,.35)}
+.phone .scr{position:relative;height:100%;border-radius:34px;overflow:hidden;background:#0f1513;padding:8.5% 0 3%}
+.phone .scr::before{content:"";position:absolute;top:2.6%;left:50%;width:9px;height:9px;margin-left:-4.5px;border-radius:50%;background:#050807;box-shadow:0 0 0 1.5px #1c2622}
+.phone img{width:100%;height:100%;object-fit:cover;object-position:top}
+.board-deco{position:absolute;inset:-30px -40px auto auto;width:220px;height:220px;z-index:-1;opacity:.35;background:conic-gradient(var(--card2) 25%,transparent 0 50%,var(--card2) 0 75%,transparent 0) 0 0/44px 44px;mask:radial-gradient(closest-side,#000,transparent)}
+@media (max-width:860px){.hero{grid-template-columns:1fr;gap:44px;padding-top:20px}.hero .phone{width:min(250px,66vw)}}
+/* Zahlen */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.facts div{background:var(--bg2);padding:22px 18px;text-align:center}.facts b{display:block;font:400 34px "Marcellus",Georgia,serif;color:var(--brass-hi)}.facts span{font-size:14px;color:var(--muted)}
+@media (max-width:640px){.facts{grid-template-columns:1fr 1fr}}
+/* Abschnitte */
+section{padding:96px 0 0}section > .wrap > h2{margin-bottom:30px}section > .wrap > h2:has(+ .sec-lead){margin-bottom:14px}.sec-lead{color:var(--muted);font-size:18px;max-width:40em;margin-bottom:40px}
+@media (max-width:640px){section{padding-top:70px}}
+.wz{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center}
+@media (max-width:860px){.wz{grid-template-columns:1fr}.wz .phone{width:min(250px,68vw)}}
+.steps{display:grid;gap:14px;counter-reset:s}
+.step{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:20px;border-radius:18px;background:var(--card);border:1px solid var(--line)}
+.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;font:400 22px "Marcellus",Georgia,serif;color:var(--brass-hi);box-shadow:inset 0 0 0 1.5px var(--brass-lo)}
+.step h3{font-size:21px;margin:6px 0 6px}.step p{color:var(--muted);font-size:16px}
+.small-note{font-size:15px;color:var(--faint);margin-top:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{padding:24px;border-radius:18px;background:var(--card);border:1px solid var(--line)}
+.card h3{margin:14px 0 8px}.card p{color:var(--muted);font-size:16px}
+.glyph{display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:var(--card2);font:400 30px "DA Chess","Segoe UI Symbol",serif;color:var(--brass-hi)}
+/* Bilderleiste */
+.shots{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 20px 24px;margin:0 -20px;scrollbar-width:thin}
+.shot{flex:0 0 auto;width:220px;scroll-snap-align:start;margin:0}
+.shot .phone{width:220px;border-radius:32px;padding:8px}.shot .phone .scr{border-radius:25px}.shot .phone .scr::before{width:7px;height:7px;margin-left:-3.5px}
+.shot figcaption{text-align:center;color:var(--muted);font-size:15px;margin-top:12px}
+/* Fair und Fortschritt */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media (max-width:760px){.two{grid-template-columns:1fr}}
+.item{display:grid;grid-template-columns:22px 1fr;gap:14px;padding:20px 22px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+.item i{width:22px;height:22px;border-radius:50%;margin-top:3px;background:radial-gradient(circle at 50% 50%,var(--brass-hi) 0 4px,transparent 5px),rgba(201,164,92,.16)}
+.item b{display:block;font-size:17px;margin-bottom:4px}.item p{color:var(--muted);font-size:16px}
+/* Fragen */
+.faq{max-width:820px}
+details{border-bottom:1px solid var(--line2)}details:first-of-type{border-top:1px solid var(--line2)}
+summary{cursor:pointer;list-style:none;padding:20px 40px 20px 0;font-weight:600;font-size:18px;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:6px;top:28px;width:10px;height:10px;border-right:2px solid var(--brass-hi);border-bottom:2px solid var(--brass-hi);transform:rotate(45deg);transition:transform .2s}
+details[open] summary::after{transform:rotate(-135deg);top:32px}
+details p{color:var(--muted);padding:0 0 20px}
+/* Kontakt und Fuß */
+.contact{margin-top:96px;padding:44px 32px;border-radius:24px;text-align:center;background:linear-gradient(160deg,rgba(201,164,92,.14),rgba(95,124,102,.12));border:1px solid var(--line2)}
+.contact h2{font-size:clamp(26px,3.4vw,36px)}.contact p{color:var(--muted);margin:10px 0 22px}
+footer{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;padding:40px 0 48px;margin-top:48px;border-top:1px solid var(--line);font-size:15px;color:var(--faint)}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 20px}footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--text)}
+@media (max-width:640px){body{font-size:16px}.lead{font-size:17px}.card p,.item p,.step p{font-size:15px}.card{padding:20px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}</style></head><body>
+<div class="wrap">
+<header class="top"><a class="brand" href="en.html"><svg class="logo" width="34" height="34" viewBox="16 13 88 88" aria-hidden="true"><path d="M58.5 92H34v-6h6.5L44.5 58C42.5 55 41 52.5 40.5 50L30 52.5l-4-2.5 4.5-3-6 .2-1.5-7L36.5 26c4-4.5 9.5-7 14-8l3.5-6 4.5 3.5z" fill="#ece5d5"/><circle cx="44" cy="28" r="2.7" fill="#0f1513"/><circle cx="27.5" cy="41.5" r="1.3" fill="#0f1513"/><path d="M61.5 92H86v-6h-6.5l-4.5-30V43l6-5V19h-5.5v6H71v-6h-4.5v6h-5z" fill="#c9a45c"/></svg><span>Denk<b>Arena</b></span></a>
+<nav><a href="#wandelzug">Wandelzug</a><a href="#spiele">Games</a><a href="#fragen">FAQ</a><a class="lang" href="index.html" hreflang="de">Deutsch</a></nav></header>
+<main>
+<div class="hero"><div><span class="eyebrow">For Android</span><h1>Brain games for every day</h1><p class="lead">Chess, Sudoku and chess puzzles, cleanly designed and without time pressure. Plus Wandelzug: your piece changes with every move, and every day there is a new puzzle, the same for everyone.</p><div class="cta"><span class="btn soon" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.2v13.6c0 .8.9 1.3 1.6.9l10.6-6.8c.6-.4.6-1.3 0-1.7L9.6 4.3C8.9 3.9 8 4.4 8 5.2z"/></svg>Coming soon to Google Play</span></div><p class="note">The app is in testing right now. Want to play already? Write to us at <a href="mailto:support@denkarena.com">support@denkarena.com</a>.</p></div>
+<div class="phone"><div class="board-deco"></div><div class="scr"><img src="img/home-en.webp" width="780" height="1688" alt="Screen: Home" fetchpriority="high" decoding="async"></div></div></div>
+<div class="facts"><div><b>240</b><span>Wandelzug levels</span></div><div><b>800+</b><span>chess puzzles</span></div><div><b>10</b><span>chess strength levels</span></div><div><b>8</b><span>languages</span></div></div>
+</main></div>
+<section id="wandelzug"><div class="wrap"><h2>Wandelzug: every move transforms your piece</h2><p class="sec-lead">A puzzle you will only find in DenkArena. It looks like chess but plays completely differently.</p>
+<div class="wz"><div class="phone"><div class="scr"><img src="img/wandelzug-en.webp" width="780" height="1688" alt="Screen: Wandelzug" loading="lazy" decoding="async"></div></div><div><div class="steps"><div class="step"><div><h3>Collect all the coins</h3><p>Land on every coin square with your piece. The fewer moves you need, the more stars you get.</p></div></div><div class="step"><div><h3>Your piece changes</h3><p>After every move it becomes the next piece in the sequence, for example from rook to bishop and then to knight.</p></div></div><div class="step"><div><h3>New every day</h3><p>240 levels in twenty chapters, 96 of them free, and every day a puzzle that is the same for everyone. In the workshop you build your own levels and share them by code.</p></div></div></div><p class="small-note">Along the way you meet portals, gates with keys, stamp squares and numbered coins.</p></div></div></div></section>
+<section id="spiele"><div class="wrap"><h2>The games</h2>
+<div class="grid"><div class="card"><span class="glyph">♞</span><h3>Chess</h3><p>Ten strength levels from newcomer to grandmaster. Play the computer, a friend on the same phone or people online with a chess clock. Online games count towards your chess rating.</p></div><div class="card"><span class="glyph">♛</span><h3>Game analysis</h3><p>After every game you see where it turned and why another move would have been better. Then you practise your mistakes in the same position.</p></div><div class="card"><span class="glyph">♟</span><h3>Learn chess</h3><p>13 short lessons: how each piece moves, how to capture, escape check and deliver mate. At the end you play your first game.</p></div><div class="card"><span class="glyph">♚</span><h3>Chess puzzles</h3><p>Over 800 checked mate puzzles from mate in 1 to mate in 3. A daily puzzle every day plus the three-minute sprint.</p></div><div class="card"><span class="glyph">#</span><h3>Sudoku</h3><p>120 Sudokus, grouped by the technique you need to solve them. With notes, hints and the error check of your choice.</p></div><div class="card"><span class="glyph">◆</span><h3>Minesweeper and Connect Four</h3><p>Minesweeper where every board can be solved without guessing. Connect Four against the computer on four levels.</p></div></div></div></section>
+<section><div class="wrap"><h2>A look inside</h2>
+<div class="shots"><figure class="shot"><div class="phone"><div class="scr"><img src="img/home-en.webp" width="780" height="1688" alt="Screen: Home" loading="lazy" decoding="async"></div></div><figcaption>Home</figcaption></figure><figure class="shot"><div class="phone"><div class="scr"><img src="img/wandelzug-en.webp" width="780" height="1688" alt="Screen: Wandelzug" loading="lazy" decoding="async"></div></div><figcaption>Wandelzug</figcaption></figure><figure class="shot"><div class="phone"><div class="scr"><img src="img/schach-en.webp" width="780" height="1688" alt="Screen: Chess" loading="lazy" decoding="async"></div></div><figcaption>Chess</figcaption></figure><figure class="shot"><div class="phone"><div class="scr"><img src="img/analyse-en.webp" width="780" height="1688" alt="Screen: Analysis" loading="lazy" decoding="async"></div></div><figcaption>Analysis</figcaption></figure><figure class="shot"><div class="phone"><div class="scr"><img src="img/aufgaben-en.webp" width="780" height="1688" alt="Screen: Chess puzzles" loading="lazy" decoding="async"></div></div><figcaption>Chess puzzles</figcaption></figure><figure class="shot"><div class="phone"><div class="scr"><img src="img/sudoku-en.webp" width="780" height="1688" alt="Screen: Sudoku" loading="lazy" decoding="async"></div></div><figcaption>Sudoku</figcaption></figure></div></div></section>
+<section><div class="wrap"><h2>Keep going</h2>
+<div class="two"><div class="item"><i></i><div><b>Daily streak</b><p>Solve the daily Wandelzug puzzle and keep your streak. Jokers save it if you miss a day.</p></div></div><div class="item"><i></i><div><b>Leaderboards and leagues</b><p>A weekly leaderboard for everyone, a separate chess rating and leagues where you compete with friends.</p></div></div><div class="item"><i></i><div><b>Achievements and profile</b><p>Statistics for every game, achievements with titles and frames you cannot buy in the shop, and a thinking profile with your strengths.</p></div></div><div class="item"><i></i><div><b>Share games</b><p>Send a chess game as a link. Anyone who opens it can replay it move by move and play on themselves.</p></div></div></div></div></section>
+<section><div class="wrap"><h2>Made fair</h2>
+<div class="two"><div class="item"><i></i><div><b>Play without an account</b><p>You only need an account to back up your progress: email and code, no password.</p></div></div><div class="item"><i></i><div><b>No ads in the middle of a game</b><p>Ads only appear between games, never while you play.</p></div></div><div class="item"><i></i><div><b>Premium for €0.99 a month</b><p>No ads, more than 800 extra levels, all chess levels and publishing your own levels. Cancel monthly.</p></div></div><div class="item"><i></i><div><b>Easy to read</b><p>Large text and a high-contrast mode for anyone who sees less well.</p></div></div></div></div></section>
+<section id="fragen"><div class="wrap"><h2>Frequently asked questions</h2>
+<div class="faq"><details><summary>What does DenkArena cost?</summary><p>The app is free and shows ads now and then, but never during a game. Premium costs €0.99 a month and can be cancelled monthly.</p></details><details><summary>Do I need an account?</summary><p>No. You can start playing right away. With a free account your progress is safe on a new phone too.</p></details><details><summary>Is DenkArena available for iPhone?</summary><p>At the moment DenkArena is only available for Android.</p></details><details><summary>What data do you store?</summary><p>Only what the app’s features need. All details are in the <a href="privacy.html">privacy policy</a>.</p></details><details><summary>How can I delete my account?</summary><p>In the app under Settings, or on the <a href="delete-account.html">delete account</a> page.</p></details></div>
+<div class="contact"><h2>Questions, ideas or found a bug?</h2><p>Write to us, we read every message.</p><a class="btn primary" href="mailto:support@denkarena.com">support@denkarena.com</a></div>
+<footer><a class="brand" href="en.html" style="font-size:20px"><svg class="logo" width="26" height="26" viewBox="16 13 88 88" aria-hidden="true"><path d="M58.5 92H34v-6h6.5L44.5 58C42.5 55 41 52.5 40.5 50L30 52.5l-4-2.5 4.5-3-6 .2-1.5-7L36.5 26c4-4.5 9.5-7 14-8l3.5-6 4.5 3.5z" fill="#ece5d5"/><circle cx="44" cy="28" r="2.7" fill="#0f1513"/><circle cx="27.5" cy="41.5" r="1.3" fill="#0f1513"/><path d="M61.5 92H86v-6h-6.5l-4.5-30V43l6-5V19h-5.5v6H71v-6h-4.5v6h-5z" fill="#c9a45c"/></svg><span>Denk<b>Arena</b></span></a><nav><a href="privacy.html">Privacy</a><a href="terms.html">Terms of use</a><a href="legal-notice.html">Legal notice</a><a href="delete-account.html">Delete account</a></nav><span>© 2026 DenkArena</span></footer>
+</div></section>
+</body></html>

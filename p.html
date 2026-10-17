@@ -37,13 +37,14 @@ button:disabled{opacity:.35;cursor:default}
 <div id="app"></div>
 </main>
 <script>/* Schachpartie als Link teilen – ohne Server: alles steckt im Link hinter dem „#“.
- * https://denkarena.github.io/p#<Code>  (die App öffnet den Link direkt, sonst zeigt die Webseite die Partie)
+ * https://denkarena.com/p#<Code>  (die App öffnet den Link direkt, sonst zeigt die Webseite die Partie)
+ * Ältere Links auf https://denkarena.github.io/p#… funktionieren weiter (dieselbe Seite liegt auf beiden Adressen).
  * Der Code ist base64url und enthält: Namen, Ergebnis, Grund, Art der Partie (online / Computer-Stufe / zu zweit),
  * Bedenkzeit, Datum, optional Wertungen und alle Züge (2 Byte pro Zug). Wird auch von site/p.html benutzt.
  * Format NIE ändern, sondern nur über die Versionsnummer erweitern – geteilte Links sollen dauerhaft funktionieren. */
 (function (root) {
   'use strict';
-  const BASE = 'https://denkarena.github.io/p';
+  const BASE = 'https://denkarena.com/p';
   const VERSION = 1;
   // Reihenfolge ist Teil des Formats: nur hinten anhängen
   const REASONS = ['', 'Schachmatt', 'Patt', 'Dreifache Wiederholung', '50-Züge-Regel', 'Zu wenig Material', 'Aufgabe', 'Zeit abgelaufen', 'Verbindung verloren', 'Remis vereinbart'];
