@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.github.denkarena",
+      "sha256_cert_fingerprints": [
+        "02:42:D1:A3:C8:9A:C2:88:86:E2:D5:C7:64:AB:E2:56:B5:9E:35:C1:F3:C3:85:ED:E3:59:41:F8:BA:76:DD:2D"
+      ]
+    }
+  }
+]
