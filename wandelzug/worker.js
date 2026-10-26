@@ -3,10 +3,7 @@ importScripts('core.js');
 self.onmessage=({data})=>{
  try{
   const M=self.Metamorph;
-  if(data.op==='hint'){
-   const p=M.unpack(data.puzzle),r=M.solve(p,data.state,{maxStates:300000,maxMs:1800});
-   self.postMessage({op:'hint',path:r.path.length?[r.path[0].at??r.path[0].pos]:[],complete:r.complete});return;
-  }
+  if(data.op!=='load'){self.postMessage({op:data.op,error:'unsupported'});return;}
   let p;
   if(data.code){
    if(data.code.length>300)throw Error('invalid');
