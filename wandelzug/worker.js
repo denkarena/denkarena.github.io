@@ -1,5 +1,5 @@
 /* The app's unchanged daily generator/solver, kept off the browser UI thread. */
-importScripts('core.js');
+importScripts('core.js'+self.location.search);
 self.onmessage=({data})=>{
  try{
   const M=self.Metamorph;

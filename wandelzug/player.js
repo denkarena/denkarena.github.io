@@ -54,7 +54,7 @@
  function activate(sq){if(!p||won())return;if(sq===state.pos){selected=!selected;render();}else if(selected&&M.moves(p,state).includes(sq))move(sq);else say('invalid');}
  function stopWorker(){clearTimeout(timeout);if(worker)worker.terminate();worker=null;}
  function error(key){stopWorker();$('#error-message').textContent=t(key);panel('error');}
- function makeWorker(){if(worker)return worker;worker=new Worker('wandelzug/worker.js');worker.onerror=()=>error('generation');worker.onmessage=({data})=>{
+ function makeWorker(){if(worker)return worker;worker=new Worker('wandelzug/worker.js'+new URL(document.querySelector('script[src*="wandelzug/player.js"]').src).search);worker.onerror=()=>error('generation');worker.onmessage=({data})=>{
    clearTimeout(timeout);
 
    if(data.error){error(data.error==='invalid'?'invalidLink':'generation');return;}load(M.unpack(data.puzzle),'daily',data.code);
