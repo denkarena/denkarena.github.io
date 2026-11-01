@@ -271,7 +271,12 @@
     const tilt = () => { const r = shots.getBoundingClientRect(), mid = r.left + r.width / 2;
       for (const f of shots.children) { const fr = f.getBoundingClientRect(), off = clamp((fr.left + fr.width / 2 - mid) / (r.width / 2), -1.2, 1.2);
         f.style.transform = reduce ? "" : `rotateY(${-off * 22}deg) scale(${1 - Math.abs(off) * 0.1}) translateY(${Math.abs(off) * 14}px)`; } };
-    shots.addEventListener("scroll", () => requestAnimationFrame(tilt), { passive: true }); addEventListener("resize", tilt); tilt();
+    // arrows instead of a scrollbar; each tap moves one picture on, they hide at either end
+    const prev = document.querySelector(".shot-nav.prev"), next = document.querySelector(".shot-nav.next");
+    const stepBy = (d) => { const f = shots.children[0], w = f.getBoundingClientRect().width + 22; shots.scrollBy({ left: d * w, behavior: reduce ? "auto" : "smooth" }); };
+    const ends = () => { prev.disabled = shots.scrollLeft < 8; next.disabled = shots.scrollLeft > shots.scrollWidth - shots.clientWidth - 8; };
+    prev.addEventListener("click", () => stepBy(-1)); next.addEventListener("click", () => stepBy(1));
+    shots.addEventListener("scroll", () => requestAnimationFrame(() => { tilt(); ends(); }), { passive: true }); addEventListener("resize", () => { tilt(); ends(); }); tilt(); ends();
   }
   document.querySelectorAll(".mobile-menu nav a").forEach((a) => a.addEventListener("click", () => a.closest("details").removeAttribute("open")));
 

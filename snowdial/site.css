@@ -105,7 +105,10 @@ dialog.demo-dlg iframe{width:100%;height:100%;border:0;display:block}
 .card .ico{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-size:30px;margin-bottom:8px;box-shadow:inset 0 -4px 0 rgba(0,0,0,.08)}
 
 /* gallery */
-.shots{display:flex;gap:22px;overflow-x:auto;padding:18px 6px 30px;scroll-snap-type:x mandatory;cursor:grab;scrollbar-width:thin;perspective:900px}
+.gallery{position:relative}
+.shots{display:flex;gap:22px;overflow-x:auto;padding:18px 6px 30px;scroll-snap-type:x mandatory;cursor:grab;scrollbar-width:none;perspective:900px}.shots::-webkit-scrollbar{display:none}
+.shot-nav{position:absolute;top:calc(50% - 40px);z-index:2;width:54px;height:54px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;color:#fff;background:linear-gradient(180deg,#ffb04a,var(--orange2));box-shadow:0 5px 0 var(--orangeD),0 10px 20px rgba(217,98,26,.3);transition:opacity .25s,transform .15s}
+.shot-nav:active{transform:translateY(4px)}.shot-nav svg{width:26px;height:26px}.shot-nav.prev{left:-6px}.shot-nav.next{right:-6px}.shot-nav[disabled]{opacity:0;pointer-events:none}
 .shots.drag{cursor:grabbing;scroll-snap-type:none}
 .shots figure{margin:0;flex:0 0 230px;scroll-snap-align:center;transition:transform .25s}
 .shots img{width:100%;height:auto;display:block;border-radius:26px;border:7px solid #fff;box-shadow:0 14px 28px rgba(20,60,110,.25);pointer-events:none;user-select:none}
@@ -136,6 +139,6 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}footer a{color:#fff;font-weight:
 .facts{grid-template-columns:repeat(2,1fr)}.phases{grid-template-columns:1fr}.phase{display:grid;grid-template-columns:150px 1fr;align-items:center}
 .grid{grid-template-columns:repeat(2,1fr);gap:12px}.card{padding:14px 14px 16px}.card h3{font-size:19px}.card p{font-size:15px}
 .two{grid-template-columns:1fr}.demo{grid-template-columns:1fr;text-align:center}.demo-text ul{display:inline-block;text-align:left}
-#mascot{width:54px;height:66px}.bubble{right:62px;bottom:52px;max-width:200px;font-size:14px}}
+.shot-nav{width:46px;height:46px}.shot-nav.prev{left:2px}.shot-nav.next{right:2px}#mascot{width:54px;height:66px}.bubble{right:62px;bottom:52px;max-width:200px;font-size:14px}}
 @media (max-width:420px){.brand b{font-size:23px}.brand img{width:40px;height:40px}.phase{grid-template-columns:110px 1fr}.btn{font-size:17px;padding:14px 20px}.grid{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
