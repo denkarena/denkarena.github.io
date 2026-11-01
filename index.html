@@ -1,79 +1,427 @@
 <!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Snowdial – das Schatten-Denkspiel</title><meta name="description" content="Snowdi der Schneemann darf nur im Schatten stehen, und der wandert mit jedem Zug. 360 Rätsel in 12 Welten, Tagesrätsel und Denksport. Für Android."><meta name="theme-color" content="#9ad8ff">
-<link rel="icon" href="img/icon-64.png"><link rel="apple-touch-icon" href="img/icon-192.png"><link rel="canonical" href="https://denkarena.com/snowdial/">
-<link rel="alternate" hreflang="de" href="https://denkarena.com/snowdial/"><link rel="alternate" hreflang="en" href="https://denkarena.com/snowdial/en.html">
-<meta property="og:title" content="Snowdial – das Schatten-Denkspiel"><meta property="og:description" content="Snowdi der Schneemann darf nur im Schatten stehen, und der wandert mit jedem Zug. 360 Rätsel in 12 Welten, Tagesrätsel und Denksport. Für Android."><meta property="og:image" content="https://denkarena.com/snowdial/img/og.png"><meta property="og:type" content="website">
-<link rel="preload" href="fonts/fredoka_bold.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:"Fredoka";src:url(fonts/fredoka_semibold.woff2) format("woff2");font-weight:600;font-display:swap}
-@font-face{font-family:"Fredoka";src:url(fonts/fredoka_bold.woff2) format("woff2");font-weight:700;font-display:swap}
-@font-face{font-family:"Nunito";src:url(fonts/nunito_bold.woff2) format("woff2");font-weight:400 700;font-display:swap}
-@font-face{font-family:"Nunito";src:url(fonts/nunito_extrabold.woff2) format("woff2");font-weight:800 900;font-display:swap}
-:root{--sky:#9ad8ff;--sky2:#d8f0ff;--ink:#1f2a44;--muted:#56627d;--card:#fffdf7;--orange:#ff9a2e;--orange2:#ff7a1a;--orangeD:#d9621a;--blue:#3aa0f0;--grass:#7cc64b;--grassD:#4f9a2c;--line:#e9e2d2}
-*{box-sizing:border-box}html{scroll-behavior:smooth;color-scheme:light}
-body{margin:0;color:var(--ink);font:17px/1.6 "Nunito",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:linear-gradient(180deg,var(--sky) 0,var(--sky2) 620px,#eef8ff 1100px,#f4fbff 100%)}
-a{color:#1b6fc2}.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;border-radius:10px;z-index:10}
-h1,h2,h3{font-family:"Fredoka","Nunito",system-ui,sans-serif;font-weight:700;line-height:1.15;margin:0}
-.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}.brand img{width:44px;height:44px;border-radius:12px;box-shadow:0 3px 8px rgba(20,60,110,.25)}
-.brand b{font:700 26px "Fredoka",sans-serif;display:block}.brand small{display:block;font-size:13px;color:var(--muted);margin-top:-2px}
-.top nav{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.top nav a{color:var(--ink);text-decoration:none;font-weight:800;font-size:15px;padding:8px 12px;border-radius:999px}
-.top nav a:hover{background:rgba(255,255,255,.6)}.top nav .lang{background:#fff;box-shadow:0 2px 0 #cfe3f3}
-.mobile-menu{display:none;position:relative}.mobile-menu summary{list-style:none;cursor:pointer;background:#fff;padding:8px 14px;border-radius:999px;font-weight:800;box-shadow:0 2px 0 #cfe3f3}
-.mobile-menu summary::-webkit-details-marker{display:none}.mobile-menu nav{position:absolute;right:0;top:calc(100% + 8px);background:#fff;border-radius:16px;padding:8px;box-shadow:0 10px 30px rgba(20,60,110,.2);flex-direction:column;align-items:stretch;min-width:180px;z-index:5}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:24px 0 10px}
-.hero h1{font-size:clamp(46px,8vw,84px);color:#fff;letter-spacing:.5px;text-shadow:0 4px 0 #2b4a7a,0 8px 18px rgba(20,50,100,.35);-webkit-text-stroke:2px #2b4a7a;paint-order:stroke fill}
-.tag{font:700 clamp(20px,3vw,26px) "Fredoka",sans-serif;margin:10px 0 14px;color:#24406b}
-.lead{font-size:19px;max-width:560px;margin:0 0 24px}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:22px;font:700 19px "Fredoka",sans-serif;text-decoration:none;color:#fff;border:0;text-shadow:0 1px 0 rgba(0,0,0,.2)}
-.btn.play{background:linear-gradient(180deg,var(--orange),var(--orange2));box-shadow:0 6px 0 var(--orangeD),0 12px 20px rgba(217,98,26,.3)}
-.btn.soon{background:linear-gradient(180deg,#9fb2c8,#8297b0);box-shadow:0 6px 0 #6a7f98;cursor:default}
-.btn.blue{background:linear-gradient(180deg,#5cb8ff,var(--blue));box-shadow:0 6px 0 #1f7bc4}
-.btn svg{width:22px;height:22px;flex:none}.note{font-size:15px;color:var(--muted);margin:18px 0 0}
-.phone{justify-self:center;width:min(300px,78vw);border-radius:38px;padding:10px;background:#fff;box-shadow:0 20px 50px rgba(20,60,110,.3)}
-.phone img{display:block;width:100%;height:auto;border-radius:30px}
-.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:36px 0 0}
-.facts div{background:var(--card);border-radius:20px;padding:14px 10px;text-align:center;box-shadow:0 4px 0 #e2dccb}
-.facts b{display:block;font:700 28px "Fredoka",sans-serif;color:var(--orange2)}.facts span{font-size:15px;color:var(--muted);font-weight:800}
-section{padding-top:72px}section h2{font-size:clamp(28px,4vw,38px);margin-bottom:10px}.sec-lead{font-size:18px;color:var(--muted);max-width:680px;margin:0 0 26px}
-.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.phase{background:var(--card);border-radius:26px;overflow:hidden;box-shadow:0 6px 0 #e2dccb,0 14px 30px rgba(20,60,110,.12)}
-.phase img{display:block;width:100%;height:auto}.phase div{padding:14px 18px 18px}.phase h3{font-size:22px}.phase p{margin:4px 0 0}
-.more-note{margin:20px 0 0;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-.card{background:var(--card);border-radius:24px;padding:20px 22px;box-shadow:0 5px 0 #e2dccb}
-.card .em{font-size:34px;line-height:1}.card h3{font-size:21px;margin:8px 0 4px}.card p{margin:0}
-.shots{display:flex;gap:18px;overflow-x:auto;padding:6px 4px 22px;scroll-snap-type:x mandatory}
-.shots figure{margin:0;flex:0 0 220px;scroll-snap-align:start}.shots img{width:100%;height:auto;display:block;border-radius:24px;border:6px solid #fff;box-shadow:0 10px 24px rgba(20,60,110,.2)}
-.shots figcaption{text-align:center;font-weight:800;color:var(--muted);font-size:15px;margin-top:8px}
-.two{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.faq details{background:var(--card);border-radius:20px;padding:4px 20px;margin:0 0 12px;box-shadow:0 4px 0 #e2dccb}
-.faq summary{cursor:pointer;font:700 19px "Fredoka",sans-serif;padding:14px 0;list-style:none}.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";float:right;color:var(--orange2)}.faq details[open] summary::after{content:"–"}.faq p{margin:0 0 16px}
-.contact{margin:40px 0 0;text-align:center;background:linear-gradient(180deg,#fff,#fff7e8);border-radius:30px;padding:34px 20px;box-shadow:0 6px 0 #ecdcbc}
-.contact h2{font-size:28px}.contact p{color:var(--muted);margin:8px 0 20px}
-.hills{height:90px;margin-top:70px;background:radial-gradient(120% 140px at 20% 100%,var(--grass) 60%,transparent 61%),radial-gradient(110% 150px at 85% 100%,#8fd25a 60%,transparent 61%)}
-footer{background:var(--grass);color:#fff}footer .wrap{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding:18px 20px 26px}
-footer nav{display:flex;gap:16px;flex-wrap:wrap}footer a{color:#fff;font-weight:800}footer span{opacity:.9;font-size:15px}
-@media (max-width:820px){.hero{grid-template-columns:1fr;text-align:center}.lead{margin-left:auto;margin-right:auto}.desktop-nav a:not(.lang){display:none}.mobile-menu{display:block}.top-actions{display:flex;gap:8px;align-items:center}
-.facts{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:repeat(2,1fr);gap:12px}.grid .card{padding:16px}.grid .card h3{font-size:19px}.grid .card p{font-size:15px}.phases{grid-template-columns:1fr}.phase{display:grid;grid-template-columns:150px 1fr;align-items:center}.two{grid-template-columns:1fr}}
-@media (max-width:420px){.brand b{font-size:22px}.brand img{width:38px;height:38px}.phase{grid-template-columns:110px 1fr}.btn{font-size:17px;padding:14px 20px}}
-@media (min-width:821px){.top-actions{display:flex;align-items:center}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}</style></head><body>
+<title>DenkArena – Denkspiele für jeden Tag</title><meta name="description" content="Schach, Schachaufgaben, Sudoku, Minensucher, Vier gewinnt und Wandelzug, das Rätsel, bei dem deine Figur mit jedem Zug eine andere wird. Für Android."><meta name="theme-color" content="#0f1513">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%2216%2013%2088%2088%22%3E%3Crect%20x%3D%2216%22%20y%3D%2213%22%20width%3D%2288%22%20height%3D%2288%22%20rx%3D%2218%22%20fill%3D%22%230f1513%22%2F%3E%3Cpath%20d%3D%22M58.5%2092H34v-6h6.5L44.5%2058C42.5%2055%2041%2052.5%2040.5%2050L30%2052.5l-4-2.5%204.5-3-6%20.2-1.5-7L36.5%2026c4-4.5%209.5-7%2014-8l3.5-6%204.5%203.5z%22%20fill%3D%22%23ece5d5%22%2F%3E%3Ccircle%20cx%3D%2244%22%20cy%3D%2228%22%20r%3D%222.7%22%20fill%3D%22%230f1513%22%2F%3E%3Cpath%20d%3D%22M61.5%2092H86v-6h-6.5l-4.5-30V43l6-5V19h-5.5v6H71v-6h-4.5v6h-5z%22%20fill%3D%22%23c9a45c%22%2F%3E%3C%2Fsvg%3E"><link rel="canonical" href="https://denkarena.com/">
+<link rel="alternate" hreflang="de" href="https://denkarena.com/"><link rel="alternate" hreflang="en" href="https://denkarena.com/en.html">
+<meta property="og:title" content="DenkArena – Denkspiele für jeden Tag"><meta property="og:description" content="Schach, Schachaufgaben, Sudoku, Minensucher, Vier gewinnt und Wandelzug, das Rätsel, bei dem deine Figur mit jedem Zug eine andere wird. Für Android."><meta property="og:image" content="https://denkarena.com/img/og.png"><meta property="og:type" content="website">
+<link rel="preload" href="fonts/marcellus.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:"Marcellus";src:url(fonts/marcellus.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";src:url(fonts/manrope.woff2) format("woff2");font-weight:200 800;font-display:swap}
+@font-face{font-family:"DA Chess";src:url(fonts/chess.woff2) format("woff2");unicode-range:U+2654-265F;font-display:block}
+:root{--bg:#0f1513;--bg2:#131b18;--card:#18211e;--card2:#1f2a26;--text:#ece5d5;--muted:#a3aba3;--faint:#6e7971;--brass:#c9a45c;--brass-hi:#e6cf96;--brass-lo:#8a6d33;--light:#e9e2cf;--dark:#5f7c66;--line:rgba(232,220,192,.1);--line2:rgba(232,220,192,.18)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 "Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(900px 520px at 78% -8%,rgba(201,164,92,.13),transparent 60%),radial-gradient(700px 500px at -10% 30%,rgba(95,124,102,.16),transparent 60%)}
+a{color:var(--brass-hi)}img{max-width:100%;display:block}
+button,summary,a{-webkit-tap-highlight-color:transparent}button{font:inherit}button,a,summary{touch-action:manipulation}
+:focus-visible{outline:2px solid var(--brass-hi);outline-offset:5px}.skip{position:absolute;top:8px;left:16px;z-index:10;padding:12px 20px;background:var(--text);color:var(--bg);transform:translateY(-160%);border-radius:8px}.skip:focus{transform:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Marcellus",Georgia,serif;font-weight:400;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:clamp(40px,6.4vw,68px)}h2{font-size:clamp(30px,4vw,44px)}h3{font-size:22px}
+p{margin:0}.muted{color:var(--muted)}
+/* Kopf */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+.brand{display:flex;align-items:center;gap:10px;color:var(--text);text-decoration:none;font:400 26px "Marcellus",Georgia,serif}.brand b{font-weight:400;color:var(--brass-hi)}
+.top nav{display:flex;align-items:center;gap:22px;font-size:15px}.top nav a{color:var(--muted);text-decoration:none}.top nav a:hover{color:var(--text)}
+.top nav .lang{padding:6px 12px;border:1px solid var(--line2);border-radius:999px;color:var(--text)}
+.top-actions{display:flex;align-items:center;gap:12px}.mobile-menu{display:none;position:relative;border:0}.mobile-menu summary{padding:9px 12px;font-size:14px;border:1px solid var(--line2);border-radius:999px}.mobile-menu summary::after{display:none}.mobile-menu nav{position:absolute;right:0;top:calc(100% + 10px);z-index:5;min-width:190px;display:flex;flex-direction:column;align-items:stretch;gap:0;background:var(--card);padding:8px;border:1px solid var(--line2);border-radius:14px;box-shadow:0 16px 40px #0008}.mobile-menu nav a{padding:12px 14px;color:var(--text);border-radius:8px}.mobile-menu nav a:hover{background:var(--card2)}
+@media (max-width:900px){.desktop-nav a:not(.lang){display:none}.mobile-menu{display:block}.top{gap:10px}.top-actions{gap:8px}.brand{font-size:24px}.top nav .lang{font-size:14px;padding:7px 10px}}
+@media (max-width:360px){.brand{font-size:21px;gap:6px}.top-actions{gap:6px}.top .logo{width:28px;height:28px}.mobile-menu summary{padding:8px 10px}.top nav .lang{padding:7px 9px}}
+/* Einstieg */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:40px 0 70px}
+.eyebrow{display:inline-block;font-size:14px;font-weight:600;color:var(--brass-hi);margin-bottom:16px}
+.lead{font-size:19px;color:var(--muted);margin:22px 0 30px;max-width:34em}
+.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:14px;font-weight:700;font-size:16px;text-decoration:none;border:0}
+.btn.primary{background:linear-gradient(180deg,var(--brass-hi),var(--brass));color:#1a1408}
+.btn.secondary{border:1px solid var(--line2);color:var(--text);background:transparent}.btn.secondary:hover{background:var(--card2)}.btn.secondary svg{width:17px;height:17px}
+.btn.soon{background:var(--card2);color:var(--muted);border:1px solid var(--line2);cursor:default}
+.btn svg{width:20px;height:20px}
+.note{font-size:14px;color:var(--faint);margin-top:14px;max-width:32em}.note a{color:var(--muted)}
+.phone{position:relative;justify-self:center;width:min(310px,78vw);aspect-ratio:390/822;border-radius:44px;padding:11px;background:linear-gradient(160deg,#2a3631,#151c19);box-shadow:0 0 0 1px var(--line2),0 40px 80px -20px rgba(0,0,0,.7),0 0 120px -30px rgba(201,164,92,.35)}
+.phone .scr{position:relative;height:100%;border-radius:34px;overflow:hidden;background:#0f1513;padding:8.5% 0 3%}
+.phone .scr::before{content:"";position:absolute;top:2.6%;left:50%;width:9px;height:9px;margin-left:-4.5px;border-radius:50%;background:#050807;box-shadow:0 0 0 1.5px #1c2622}
+.phone img{width:100%;height:100%;object-fit:cover;object-position:top}
+.board-deco{position:absolute;inset:-30px -40px auto auto;width:220px;height:220px;z-index:-1;opacity:.35;background:conic-gradient(var(--card2) 25%,transparent 0 50%,var(--card2) 0 75%,transparent 0) 0 0/44px 44px;mask:radial-gradient(closest-side,#000,transparent)}
+@media (max-width:860px){.hero{grid-template-columns:1fr;gap:44px;padding-top:20px}.hero .phone{width:min(250px,66vw)}}
+/* Zahlen */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.facts div{background:var(--bg2);padding:22px 18px;text-align:center}.facts b{display:block;font:400 34px "Marcellus",Georgia,serif;color:var(--brass-hi)}.facts span{font-size:14px;color:var(--muted)}
+@media (max-width:640px){.facts{grid-template-columns:1fr 1fr}}
+/* Abschnitte */
+section{padding:96px 0 0}section > .wrap > h2{margin-bottom:30px}section > .wrap > h2:has(+ .sec-lead){margin-bottom:14px}.sec-lead{color:var(--muted);font-size:18px;max-width:40em;margin-bottom:40px}
+@media (max-width:640px){section{padding-top:70px}}
+.wz{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center}
+@media (max-width:860px){.wz{grid-template-columns:1fr}.wz .phone{width:min(250px,68vw)}}
+.steps{display:grid;gap:14px;counter-reset:s}
+.step{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:20px;border-radius:18px;background:var(--card);border:1px solid var(--line)}
+.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;font:400 22px "Marcellus",Georgia,serif;color:var(--brass-hi);box-shadow:inset 0 0 0 1.5px var(--brass-lo)}
+.step h3{font-size:21px;margin:6px 0 6px}.step p{color:var(--muted);font-size:16px}
+.small-note{font-size:15px;color:var(--faint);margin-top:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.more-game{display:flex;align-items:center;gap:22px;padding:24px;border-radius:22px;background:linear-gradient(180deg,#9ad8ff,#d8f0ff);color:#1f2a44;text-decoration:none}.more-game img{width:96px;height:96px;border-radius:24px;flex:none;box-shadow:0 6px 16px rgba(20,60,110,.3)}.more-game h3{margin:0;font-size:26px;color:#1f2a44}.more-game .more-tag{margin:2px 0 6px;font-weight:700;color:#24406b}.more-game p{margin:0;color:#33405e}.more-game .more-btn{margin-left:auto;flex:none;padding:13px 20px;border-radius:16px;font-weight:700;color:#fff;background:linear-gradient(180deg,#ff9a2e,#ff7a1a);box-shadow:0 5px 0 #d9621a}@media (max-width:700px){.more-game{flex-direction:column;align-items:flex-start;text-align:left}.more-game .more-btn{margin-left:0}}
+.card{padding:24px;border-radius:18px;background:var(--card);border:1px solid var(--line)}
+.card h3{margin:14px 0 8px}.card p{color:var(--muted);font-size:16px}
+.glyph{display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:var(--card2);font:400 30px "DA Chess","Segoe UI Symbol",serif;color:var(--brass-hi)}
+/* App-Vorschau: ein Bildschirm und eine Erklärung statt einer Bilderleiste */
+.showcase-head{max-width:720px;margin-bottom:34px}.showcase-head h2{margin-bottom:16px}.showcase-head p{color:var(--muted);font-size:18px}
+.app-showcase{display:grid;gap:24px}.app-showcase.enhanced{grid-template-columns:minmax(210px,.65fr) minmax(0,1.6fr);gap:32px;align-items:start}
+.preview-tabs{display:flex;flex-direction:column;gap:0;min-width:0;border-top:1px solid var(--line2)}
+.preview-tab{display:flex;text-align:left;flex-direction:column;gap:5px;width:100%;padding:18px 18px 18px 20px;border:0;border-bottom:1px solid var(--line2);border-left:3px solid transparent;background:transparent;color:var(--muted);cursor:pointer;transition:background .18s,color .18s,border-color .18s}
+.preview-tab strong{font-size:17px;font-weight:650}.preview-tab small{font-size:13px;line-height:1.4;font-weight:400}.preview-tab:hover{color:var(--text);background:var(--card)}
+.preview-tab[aria-selected=true]{border-left-color:var(--brass);background:var(--card2);color:var(--text)}.preview-tab[aria-selected=true] strong{color:var(--brass-hi)}
+.preview-stage{min-width:0;background:var(--bg2);border:1px solid var(--line2);border-radius:24px;padding:28px}
+.preview-panel{margin:0;display:grid;grid-template-columns:minmax(180px,260px) minmax(0,1fr);gap:28px;align-items:center;min-width:0}.preview-panel + .preview-panel{margin-top:32px}.enhanced .preview-panel{margin:0}
+.preview-zoom{position:relative;display:block;max-width:280px;width:100%;margin:auto;color:var(--text);text-decoration:none;cursor:zoom-in;isolation:isolate;border:1px solid var(--line2);border-radius:16px;background:var(--bg);overflow:hidden;box-shadow:0 16px 40px -14px #0008}
+.preview-zoom img{width:100%;height:auto;aspect-ratio:780/1688}.preview-zoom .zoom-label{margin:10px;display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 12px;border:1px solid var(--line2);border-radius:10px;font-size:12px;font-weight:650;background:rgba(15,21,19,.96);box-shadow:0 4px 18px #0006;transition:background .2s}
+.zoom-label svg{width:16px;height:16px}.preview-zoom:hover .zoom-label{background:var(--card2)}
+.preview-panel figcaption{min-width:0}.preview-panel figcaption .eyebrow{margin-bottom:12px;font-size:13px}.preview-panel h3{font-size:clamp(24px,2.6vw,30px);line-height:1.18;margin-bottom:16px}.preview-panel p{font-size:15px;color:var(--muted);line-height:1.65}
+.shot-dialog{width:min(820px,calc(100% - 24px));max-height:calc(100dvh - 32px);max-height:calc(100vh - 32px);padding:0;border:1px solid var(--line2);border-radius:20px;color:var(--text);background:var(--bg2);overscroll-behavior:contain}
+.shot-dialog::backdrop{background:rgba(3,8,6,.88);backdrop-filter:blur(8px)}.image-open{overflow:hidden}
+.dialog-head{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:12px;padding:14px 20px;background:var(--bg2);border-bottom:1px solid var(--line2)}.dialog-head h2{font-size:24px;flex:1;line-height:1.2}.original-image{font-size:13px;text-underline-offset:3px}.dialog-close{display:grid;place-items:center;flex-shrink:0;width:44px;height:44px;border-radius:50%;border:1px solid var(--line2);background:var(--card2);color:var(--text);font-size:28px;cursor:pointer}.dialog-image{padding:20px 28px 28px}.dialog-image img{width:100%;height:auto;border-radius:10px}
+@supports(height:100dvh){.shot-dialog{max-height:calc(100dvh - 32px)}}
+@media (max-width:980px){.app-showcase.enhanced{grid-template-columns:minmax(0,1fr);gap:22px}.preview-tabs{flex-direction:row;gap:8px;border:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;padding:6px 2px 12px}.preview-tab{flex:0 0 auto;width:auto;scroll-snap-align:start;border:1px solid var(--line2);border-radius:12px;padding:11px 16px;white-space:nowrap}.preview-tab small{display:none}.preview-tab[aria-selected=true]{border-color:var(--brass-lo)}.preview-panel{grid-template-columns:minmax(180px,280px) minmax(0,1fr);gap:34px}.preview-stage{padding:28px}}
+@media (max-width:600px){.showcase-head{margin-bottom:18px}.showcase-head p{font-size:16px}.preview-stage{padding:22px 18px;border-radius:20px}.preview-panel{grid-template-columns:minmax(0,1fr);gap:24px}.preview-panel figcaption{order:-1}.preview-panel h3{font-size:27px;margin-bottom:10px}.preview-panel p{font-size:15px}.preview-panel figcaption .eyebrow{display:none}.preview-zoom{max-width:270px}.preview-tab strong{font-size:15px}.dialog-head{padding:10px 12px;flex-wrap:wrap;gap:8px}.dialog-head h2{font-size:22px;min-width:120px}.original-image{font-size:12px}.dialog-close{width:40px;height:40px}.dialog-image{padding:12px}}
+/* Fair und Fortschritt */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media (max-width:760px){.two{grid-template-columns:1fr}}
+.item{display:grid;grid-template-columns:22px 1fr;gap:14px;padding:20px 22px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+.item i{width:22px;height:22px;border-radius:50%;margin-top:3px;background:radial-gradient(circle at 50% 50%,var(--brass-hi) 0 4px,transparent 5px),rgba(201,164,92,.16)}
+.item b{display:block;font-size:17px;margin-bottom:4px}.item p{color:var(--muted);font-size:16px}
+/* Fragen */
+.faq{max-width:820px}
+.faq details{border-bottom:1px solid var(--line2)}.faq details:first-of-type{border-top:1px solid var(--line2)}
+.faq summary{cursor:pointer;list-style:none;padding:20px 40px 20px 0;font-weight:600;font-size:18px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:6px;top:28px;width:10px;height:10px;border-right:2px solid var(--brass-hi);border-bottom:2px solid var(--brass-hi);transform:rotate(45deg);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(-135deg);top:32px}
+.faq details p{color:var(--muted);padding:0 0 20px}
+/* Kontakt und Fuß */
+.contact{margin-top:96px;padding:44px 32px;border-radius:24px;text-align:center;background:linear-gradient(160deg,rgba(201,164,92,.14),rgba(95,124,102,.12));border:1px solid var(--line2)}
+.contact h2{font-size:clamp(26px,3.4vw,36px)}.contact p{color:var(--muted);margin:10px 0 22px}
+footer{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;padding:40px 0 48px;margin-top:48px;border-top:1px solid var(--line);font-size:15px;color:var(--faint)}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 20px}footer a{color:var(--muted);text-decoration:none}footer a:hover{color:var(--text)}
+@media (max-width:640px){body{font-size:16px}.lead{font-size:17px}.card p,.item p,.step p{font-size:15px}.card{padding:20px}}
+
+html{scroll-padding-top:100px}
+.demo-defs{position:absolute;width:0;height:0;overflow:hidden}.demo-kind-icon{display:grid;place-items:center;width:28px;height:28px}.demo-kind-icon svg{display:block;width:100%;height:100%;fill:currentColor}.experience-foot>span>svg{display:block;width:32px;height:32px;fill:currentColor}
+.demo-cell{appearance:none;border:0;padding:0;min-width:0;font:inherit;color:inherit;user-select:none}.demo-board[role=group] .demo-cell{cursor:pointer}.demo-board[role=group] .demo-cell.wall{cursor:not-allowed}.demo-board{touch-action:pan-y}.demo-board[role=group] .demo-cell.is-piece{cursor:grab;touch-action:none}.demo-cell.available::before{content:'';position:absolute;width:14%;height:14%;border-radius:50%;background:#13221966}.demo-cell.coin-option::before{width:58%;height:58%;border:2px solid #293f3380;background:transparent}.demo-cell.selected{box-shadow:inset 0 0 0 2px #f3ecd9aa}.demo-cell:focus-visible{outline:2px solid #24372d;outline-offset:-3px;z-index:4}.demo-piece.dragging{transition:none;cursor:grabbing}.demo-coordinate{position:absolute;font:8px "Manrope",sans-serif;font-weight:600;pointer-events:none;opacity:.7}.demo-coordinate.rank{top:3px;left:3px}.demo-coordinate.file{bottom:2px;right:4px}.demo-cell.light .demo-coordinate{color:#344d3d}.demo-cell.dark .demo-coordinate{color:#f0ead8}.demo-cell.wall .demo-coordinate{color:#d9dfd2}
+.demo-progress{margin-top:10px;color:var(--muted);font-size:10px;line-height:1.5}.demo-actions .demo-reset{width:44px;min-height:44px}.demo-actions .demo-next{min-height:44px}.demo-undo:disabled{opacity:.3;cursor:default}
+.site-header{position:sticky;top:0;z-index:20;background:rgba(15,21,19,.92);backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:border-color .25s,background .25s}.site-header.scrolled{border-bottom-color:var(--line2);background:rgba(15,21,19,.97)}.site-header .top{padding-top:16px;padding-bottom:16px}.skip{z-index:100}
+.hero-next{position:relative;isolation:isolate;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);gap:64px;padding:76px 0 64px;align-items:center}
+.hero-next::before{content:'';position:absolute;z-index:-1;inset:-30px -20px;background:linear-gradient(90deg,transparent 99.7%,rgba(232,220,192,.045) 99.7%) 0 0/84px 84px,linear-gradient(transparent 99.7%,rgba(232,220,192,.045) 99.7%) 0 0/84px 84px;mask-image:radial-gradient(ellipse at 72% 40%,#000,transparent 68%);pointer-events:none}
+.hero-eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;display:flex;gap:10px;align-items:center;margin-bottom:28px}.hero-eyebrow>span{width:7px;height:7px;background:var(--brass);border-radius:50%}
+.hero-next h1{margin:0;line-height:1.03;letter-spacing:-.055em;font-family:var(--hero-font,"Manrope"),sans-serif;font-weight:650;font-size:clamp(62px,7.7vw,108px);text-wrap:initial}.hero-next h1>span,.hero-next h1>em{display:block}.hero-next h1 em{font-family:"Marcellus",Georgia,serif;font-weight:400;letter-spacing:-.045em;font-style:normal;font-size:.81em;color:var(--brass-hi);margin-top:8px}
+.hero-next .lead{font-size:17px;line-height:1.8;max-width:31em;margin:28px 0}.hero-next .cta{gap:10px}.hero-next .btn{padding:14px 20px;font-size:14px;border-radius:10px}.hero-next .note{font-size:12px;color:var(--muted);line-height:1.7;margin-top:16px;max-width:35em}
+.hero-path{display:grid;gap:0;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line2);margin-top:38px;padding-top:18px}.hero-path a{color:var(--text);font-size:12px;line-height:1.6;text-decoration:none;padding-right:10px}.hero-path a>span{display:block;color:var(--brass);font-size:10px;letter-spacing:.12em;margin-bottom:4px}.hero-path a:hover{color:var(--brass-hi)}
+.hero-experience{min-width:0;position:relative;padding:0 0 14px}.hero-experience::before{content:'';position:absolute;inset:9% 3% 8%;border:1px solid var(--line2);transform:rotate(-3deg);border-radius:22px;z-index:-1;background:rgba(31,42,38,.25);pointer-events:none}
+.experience-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 4px 14px}.experience-head>span{font-family:"Marcellus",serif;font-size:23px}.experience-head small{font-size:11px;color:var(--muted)}
+.hero-demo{background:var(--bg2);padding:22px;border:1px solid var(--line2);border-radius:18px;box-shadow:0 28px 70px -30px #000b}.demo-instruction{color:var(--muted);font-size:12px;line-height:1.6;margin-bottom:16px;max-width:32em}
+.demo-sequence{display:flex;justify-content:center;align-items:center;gap:12px;margin-bottom:20px}.demo-kind{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:11px;transition:color .2s}.demo-kind b{font:28px "DA Chess","Segoe UI Symbol",serif;font-weight:400}.demo-kind.active{color:var(--brass-hi)}.demo-arrow{font-size:13px;color:var(--faint)}
+.demo-board{position:relative;aspect-ratio:1;overflow:hidden;border-radius:8px;border:1px solid rgba(232,220,192,.2);background:var(--light);container-type:inline-size}.demo-cells{display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(6,1fr);height:100%;position:absolute;inset:0}.demo-cell{position:relative;display:grid;place-items:center}.demo-cell.light{background:#e9e2cf}.demo-cell.dark{background:#5f7c66}.demo-cell.wall{background:repeating-linear-gradient(135deg,#18201c 0 6px,#202922 6px 9px)}.demo-cell.target::after{content:'';position:absolute;inset:8%;border:2px solid #a17b2e;box-shadow:inset 0 0 0 1px #e6cf9677;pointer-events:none;border-radius:2px}
+.demo-coin{display:block;width:25%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 32% 28%,#f6edcc,#d6b866 55%,#92712f);box-shadow:0 2px 5px #0004;transition:opacity .2s,scale .2s}.demo-coin.collected{opacity:0;scale:.5}
+.demo-piece{position:absolute;z-index:3;display:grid;place-items:center;width:16.666667%;height:16.666667%;transform:translate(-50%,-50%);color:#f3ecd9;text-shadow:0 2px 1px #151c17,0 3px 7px #0008;font:50px "DA Chess","Segoe UI Symbol",serif;font-size:clamp(28px,8vw,54px);font-size:14cqw;pointer-events:none;transition:left .56s cubic-bezier(.4,0,.2,1),top .56s cubic-bezier(.4,0,.2,1)}.resetting .demo-piece{transition:none}.demo-route{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}.demo-route path{fill:none;stroke:#c6a460;stroke-width:.045;stroke-dasharray:.06 .08;stroke-linejoin:round;opacity:.8}
+.demo-piece>svg{display:block;width:90%;height:90%;fill:currentColor;filter:drop-shadow(0 1px 0 #151c17) drop-shadow(0 2px 2px #0005)}
+.demo-result{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:18px}.demo-count{font-size:14px;color:var(--brass-hi);font-variant-numeric:tabular-nums;white-space:nowrap}.demo-count>span{color:var(--muted);font-size:11px;margin-left:4px}.demo-actions{display:flex;gap:8px;align-items:center}.demo-actions button{cursor:pointer;border-radius:8px;min-height:40px;transition:background .2s}.demo-reset{border:1px solid var(--line2);background:transparent;width:40px;font-size:22px;color:var(--muted)}.demo-next{border:1px solid var(--brass-lo);background:var(--brass-hi);color:#1a1408;font-size:12px;font-weight:700;padding:9px 13px;display:flex;align-items:center;gap:12px}.demo-next:hover{background:#efdcac}.demo-next:disabled{cursor:wait;opacity:.7}.demo-state{margin-top:12px;font-size:11px;line-height:1.6;color:var(--muted);min-height:3.2em}.demo-static-note{font-size:12px;color:var(--muted);margin-top:12px}
+.experience-foot{display:flex;gap:12px;align-items:center;margin:18px 8px 0}.experience-foot>span{font:32px "DA Chess",serif;color:var(--brass)}.experience-foot p{color:var(--muted);font-size:11px;line-height:1.6}.experience-foot a{display:block;font-size:11px;text-underline-offset:3px}
+.facts{border-radius:0;border-width:1px 0;background:transparent;gap:0;grid-template-columns:repeat(4,minmax(0,1fr))}.facts div{background:transparent;text-align:left;padding:24px 26px;border-right:1px solid var(--line)}.facts div:first-child{padding-left:0}.facts div:last-child{border-right:0}.facts b{font-size:38px}.facts span{font-size:12px}
+.phone .scr{background:linear-gradient(90deg,#131816,#131a17 50%,#111916);padding-bottom:0}.phone img{mask-image:linear-gradient(to bottom,transparent,#000 3px)}.phone .scr::before{background:#111512;box-shadow:0 0 0 1px #222d26}
+@media(max-width:1100px){.hero-next{gap:42px}.hero-next h1{font-size:clamp(60px,7.5vw,88px)}.hero-demo{padding:18px}.experience-head small{font-size:10px}.hero-next .lead{font-size:16px}.hero-next .btn{padding:13px 16px}}
+@media(max-width:860px){.hero-next{grid-template-columns:minmax(0,1fr);gap:46px;padding:44px 0 40px}.hero-next h1{font-size:clamp(58px,12vw,88px);max-width:none}.hero-next .lead{max-width:38em}.hero-copy{max-width:650px}.hero-experience{width:min(460px,100%);justify-self:center}.hero-experience::before{inset:9% 1% 8%;transform:rotate(-2deg)}.hero-path{margin-top:28px;max-width:450px}.hero-next .cta{flex-wrap:wrap}.experience-head small{font-size:11px}.hero-demo{padding:22px}}
+@media(max-width:480px){.hero-next{padding-top:34px;gap:38px}.hero-next h1{font-size:clamp(50px,14vw,66px)}.hero-eyebrow{font-size:10px;margin-bottom:22px}.hero-next .lead{font-size:15px;line-height:1.75;margin:22px 0}.hero-next .btn{padding:13px 14px;font-size:12px;gap:7px}.hero-next .note{font-size:11px}.hero-next .cta{gap:8px}.hero-path a{font-size:10px}.hero-demo{padding:16px}.demo-sequence{gap:9px;margin-bottom:16px}.demo-kind{font-size:10px;gap:4px}.demo-kind b{font-size:26px}.demo-result{gap:4px}.demo-next{padding:9px 10px;gap:8px;font-size:11px}.demo-actions{gap:6px}.demo-count{font-size:12px}.demo-count>span{font-size:10px;margin-left:2px}.demo-instruction{font-size:11px}.experience-head>span{font-size:22px}.experience-head small{font-size:9px}.demo-state{font-size:10px}.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.facts div{padding:18px 12px}.facts div:nth-child(2){border-right:0}.facts div:nth-child(3){padding-left:0;border-top:1px solid var(--line)}.facts div:nth-child(4){border-top:1px solid var(--line)}.facts b{font-size:32px}}
+@media(max-width:640px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.facts div{padding:18px 12px}.facts div:nth-child(2){border-right:0}.facts div:nth-child(3){padding-left:0;border-top:1px solid var(--line)}.facts div:nth-child(4){border-top:1px solid var(--line)}}
+@supports(animation-timeline:scroll()){.page-progress{position:fixed;top:0;left:0;width:100%;height:2px;background:var(--brass);transform-origin:left;z-index:30;animation:reading-progress linear both;animation-timeline:scroll(root)}@keyframes reading-progress{from{transform:scaleX(0)}to{transform:scaleX(1)}}}
+@media(prefers-reduced-motion:reduce){.demo-piece,.demo-coin,.demo-kind,.site-header{transition:none}.hero-experience::before{transform:none}.page-progress{animation:none;display:none}}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}</style></head><body>
 <a class="skip" href="#inhalt">Zum Inhalt</a>
-<div class="wrap"><header class="top"><a class="brand" href="index.html"><img src="img/icon-64.png" width="44" height="44" alt=""><span><b>Snowdial</b><small>ein Spiel von DenkArena</small></span></a>
-<div class="top-actions"><details class="mobile-menu"><summary>Menü</summary><nav aria-label="Menü"><a href="#so-gehts">So geht&#x27;s</a><a href="#welten">Welten</a><a href="#bilder">Bilder</a><a href="#fragen">Fragen</a></nav></details>
-<nav class="desktop-nav"><a href="#so-gehts">So geht&#x27;s</a><a href="#welten">Welten</a><a href="#bilder">Bilder</a><a href="#fragen">Fragen</a><a class="lang" href="en.html" hreflang="en">English</a></nav></div></header></div>
+<div class="page-progress" aria-hidden="true"></div><div class="site-header"><div class="wrap">
+<header class="top"><a class="brand" href="index.html"><svg class="logo" width="34" height="34" viewBox="16 13 88 88" aria-hidden="true"><path d="M58.5 92H34v-6h6.5L44.5 58C42.5 55 41 52.5 40.5 50L30 52.5l-4-2.5 4.5-3-6 .2-1.5-7L36.5 26c4-4.5 9.5-7 14-8l3.5-6 4.5 3.5z" fill="#ece5d5"/><circle cx="44" cy="28" r="2.7" fill="#0f1513"/><circle cx="27.5" cy="41.5" r="1.3" fill="#0f1513"/><path d="M61.5 92H86v-6h-6.5l-4.5-30V43l6-5V19h-5.5v6H71v-6h-4.5v6h-5z" fill="#c9a45c"/></svg><span>Denk<b>Arena</b></span></a>
+<div class="top-actions"><details class="mobile-menu"><summary>Menü</summary><nav aria-label="Menü"><a href="#wandelzug">Wandelzug</a><a href="#spiele">Spiele</a><a href="#einblicke">App-Vorschau</a><a href="#fragen">Fragen</a><a href="snowdial/">Snowdial</a></nav></details><nav class="desktop-nav"><a href="#wandelzug">Wandelzug</a><a href="#spiele">Spiele</a><a href="#einblicke">App-Vorschau</a><a href="#fragen">Fragen</a><a href="snowdial/">Snowdial</a><a class="lang" href="en.html" hreflang="en">English</a></nav></div></header></div></div>
 <main id="inhalt" tabindex="-1"><div class="wrap">
-<div class="hero"><div><h1>Snowdial</h1><p class="tag">Bleib cool. Bleib im Schatten.</p><p class="lead">Ein Schneemann im Sommer? Das geht nur mit Köpfchen. Snowdi will zurück in sein Iglu, aber er darf nur im <b>Schatten</b> stehen. Und der wandert mit jedem Zug.</p><span class="btn soon" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 2.6v18.8c0 .5.5.8 1 .6l16-9.4c.4-.3.4-.9 0-1.2L5 2c-.5-.3-1 .1-1 .6z"/></svg>Bald bei Google Play</span><p class="note">Snowdial ist gerade im Test. Willst du vorab mitspielen? Schreib uns an <a href="mailto:snowdial@denkarena.com">snowdial@denkarena.com</a>.</p></div>
-<div class="phone"><img src="img/01_home-de.webp" width="540" height="960" alt="Startbildschirm"></div></div>
-<div class="facts"><div><b>360</b><span>Rätsel</span></div><div><b>12</b><span>Welten</span></div><div><b>Täglich</b><span>neues Rätsel</span></div><div><b>11</b><span>Sprachen</span></div></div></div>
-<section id="so-gehts"><div class="wrap"><h2>So geht&#x27;s</h2><p class="sec-lead">Die Sonne wandert über die Insel. Mit jedem Zug ändern sich die Schatten, also musst du vorausdenken.</p><div class="phases"><div class="phase"><img src="img/22_phase_morning-de.webp" width="540" height="580" alt="Morgens" loading="lazy"><div><h3>Morgens</h3><p>Die Sonne steht links, die Schatten fallen nach rechts.</p></div></div><div class="phase"><img src="img/23_phase_noon-de.webp" width="540" height="580" alt="Mittags" loading="lazy"><div><h3>Mittags</h3><p>Die Sonne steht hoch. Die Schatten sind nur halb so lang.</p></div></div><div class="phase"><img src="img/24_phase_evening-de.webp" width="540" height="580" alt="Abends" loading="lazy"><div><h3>Abends</h3><p>Die Sonne steht rechts, die Schatten fallen nach links.</p></div></div></div><p class="more-note">Nachts ist überall Schatten. Höhere Dinge werfen längere Schatten: Busch 1 Feld, Baum 2, Haus 3. Mit der kürzesten Lösung gibt es den dritten Stern.</p></div></section>
-<section id="welten"><div class="wrap"><h2>Jede Welt bringt neue Ideen</h2><div class="grid"><div class="card"><div class="em" aria-hidden="true">📦</div><h3>Kisten</h3><p>Schieb Kisten und bau dir deinen eigenen Schatten.</p></div><div class="card"><div class="em" aria-hidden="true">🧊</div><h3>Eis</h3><p>Auf Eis schlitterst du, bis dich etwas aufhält.</p></div><div class="card"><div class="em" aria-hidden="true">🌀</div><h3>Portale</h3><p>Spring durch Portale auf die andere Seite der Insel.</p></div><div class="card"><div class="em" aria-hidden="true">🌬️</div><h3>Wind</h3><p>Der Wind trägt dich ein Stück weiter, ob du willst oder nicht.</p></div><div class="card"><div class="em" aria-hidden="true">🚪</div><h3>Schalter</h3><p>Geschlossene Tore spenden Schatten, offene lassen dich durch.</p></div><div class="card"><div class="em" aria-hidden="true">🐧</div><h3>Pino</h3><p>Pinguin Pino läuft dir hinterher und schützt dich mit seinem kleinen Schatten.</p></div></div></div></section>
-<section><div class="wrap"><h2>Jeden Tag etwas zu tun</h2><div class="two"><div class="card"><h3>Tagesrätsel</h3><p>Jeden Tag ein neues Rätsel. Deine Serie wächst, und ein Serienschutz rettet sie, wenn du mal einen Tag verpasst.</p></div><div class="card"><h3>Denksport</h3><p>Bewertete Rätsel ohne Rückgängig. Deine Wertung steigt wie beim Schach, vom „Schneeball“ bis zur „Eis-Legende“.</p></div><div class="card"><h3>Missionen und Sonnenpass</h3><p>Drei Aufgaben am Tag und jeden Monat eine neue Saison mit Outfits, Spuren und Rahmen.</p></div><div class="card"><h3>Schattenduell</h3><p>Löse drei Rätsel gegen die Uhr und schlag den Übungs-Bot. Online-Duelle gegen Freunde folgen mit einem Update.</p></div></div></div></section>
-<section id="bilder"><div class="wrap"><h2>So sieht Snowdial aus</h2><div class="shots"><figure><img src="img/01_home-de.webp" width="540" height="960" alt="Startbildschirm" loading="lazy"><figcaption>Startbildschirm</figcaption></figure><figure><img src="img/02_game_garden-de.webp" width="540" height="960" alt="Ein Level im Garten" loading="lazy"><figcaption>Ein Level im Garten</figcaption></figure><figure><img src="img/03_sun_sweep-de.webp" width="540" height="960" alt="Die Sonne wandert" loading="lazy"><figcaption>Die Sonne wandert</figcaption></figure><figure><img src="img/08_game_castle-de.webp" width="540" height="960" alt="Burggarten mit Toren" loading="lazy"><figcaption>Burggarten mit Toren</figcaption></figure><figure><img src="img/07_wardrobe_exclusive-de.webp" width="540" height="960" alt="Garderobe mit Outfits" loading="lazy"><figcaption>Garderobe mit Outfits</figcaption></figure></div></div></section>
-<section><div class="wrap"><h2>Fair und entspannt</h2><div class="two"><div class="card"><h3>Alle Level kostenlos</h3><p>Du kannst alle 360 Rätsel ohne Kauf spielen.</p></div><div class="card"><h3>Zurück, so oft du willst</h3><p>Ein Fehler ist kein Drama. Nimm Züge zurück oder hol dir einen fairen Tipp.</p></div><div class="card"><h3>Garantiert lösbar</h3><p>Jedes Level wurde von einem Computer-Löser geprüft.</p></div><div class="card"><h3>Leicht zu lernen</h3><p>Eine Hand zeigt dir im ersten Level jeden Schritt. Lesen musst du dafür kaum.</p></div></div></div></section>
-<section id="fragen"><div class="wrap"><h2>Häufige Fragen</h2><div class="faq"><details name="faq"><summary>Was kostet Snowdial?</summary><p>Snowdial ist kostenlos und zeigt Werbung. Mit „Werbung entfernen“ oder dem optionalen Abo Snowdial Plus spielst du ohne Werbung. Das Abo ist jederzeit in Google Play kündbar.</p></details><details name="faq"><summary>Brauche ich Internet?</summary><p>Nein. Alle Level, das Tagesrätsel und der Denksport laufen auch offline.</p></details><details name="faq"><summary>Gibt es Snowdial für iPhone?</summary><p>Zuerst erscheint Snowdial für Android. Eine iPhone-Version ist geplant.</p></details><details name="faq"><summary>Brauche ich ein Konto?</summary><p>Nein. Dein Spielstand bleibt auf deinem Handy.</p></details><details name="faq"><summary>Für wen ist Snowdial?</summary><p>Für alle, die gern knobeln. Die ersten Welten sind leicht, später wird es richtig knifflig.</p></details></div>
-<div class="contact"><h2>Fragen, Ideen oder einen Fehler gefunden?</h2><p>Schreib uns, wir lesen jede Nachricht.</p><a class="btn blue" href="mailto:snowdial@denkarena.com">snowdial@denkarena.com</a></div></div></section>
-</main><div class="hills" aria-hidden="true"></div>
-<footer><div class="wrap"><nav><a href="datenschutz.html">Datenschutz</a><a href="../impressum.html">Impressum</a><a href="../index.html">DenkArena</a></nav><span>© 2026 DenkArena</span></div></footer>
+<svg class="demo-defs" width="0" height="0" aria-hidden="true"><symbol id="demo-icon-R" viewBox="0 0 100 100"><path d="M12.991655076495128 91.0V80.62169680111266H19.834492350486784V72.86648122392211H24.624478442280942L28.958275382475655 65.11126564673157V30.44089012517385L24.624478442280942 22.68567454798331H19.834492350486784V9.0H33.97635605006954V12.307371349095959H40.819193324061196V9.456189151599446H59.1808066759388V12.307371349095959H66.02364394993046V9.0H80.16550764951322V22.68567454798331H75.26147426981919L71.04172461752434 30.44089012517385V65.11126564673157L75.26147426981919 72.86648122392211H80.16550764951322V80.62169680111266H87.00834492350486V91.0ZM23.25591098748261 20.062586926286514H76.74408901251738V17.667593880389433H23.25591098748261ZM30.09874826147427 26.677329624478446H69.90125173852573L71.26981919332405 24.282336578581365H28.73018080667594ZM28.38803894297635 71.7260083449235H71.61196105702365L70.24339360222531 69.33101529902643H29.756606397774682ZM23.25591098748261 79.48122392211405H76.74408901251738V77.08623087621697H23.25591098748261ZM16.413073713490956 87.2364394993046H83.58692628650904V84.84144645340751H16.413073713490956Z"/></symbol><symbol id="demo-icon-B" viewBox="0 0 100 100"><path d="M13.982278481012658 91.0V80.93164556962026Q15.643037974683544 79.47848101265824 18.653164556962025 78.49240506329114Q21.663291139240506 77.50632911392405 25.29620253164557 77.50632911392405H40.243037974683546Q42.630379746835445 77.50632911392405 43.87594936708861 77.14303797468355Q45.12151898734177 76.77974683544304 45.12151898734177 75.11898734177215Q33.18481012658228 74.39240506329114 33.18481012658228 70.03291139240507Q33.18481012658228 69.41012658227848 33.49620253164557 68.7873417721519L37.129113924050635 59.44556962025317Q33.49620253164557 57.1620253164557 31.368354430379746 52.85443037974684Q29.240506329113924 48.54683544303798 29.240506329113924 43.66835443037975Q29.240506329113924 36.92151898734178 34.01518987341772 30.745569620253168Q38.789873417721516 24.569620253164558 47.09367088607595 19.89873417721519Q44.187341772151896 18.23797468354431 44.187341772151896 14.812658227848104Q44.187341772151896 12.425316455696205 45.9 10.712658227848102Q47.6126582278481 9.0 50.0 9.0Q52.3873417721519 9.0 54.1 10.712658227848102Q55.812658227848104 12.425316455696205 55.812658227848104 14.812658227848104Q55.812658227848104 18.23797468354431 52.90632911392405 19.89873417721519Q61.21012658227848 24.569620253164558 65.98481012658227 30.745569620253168Q70.75949367088607 36.92151898734178 70.75949367088607 43.66835443037975Q70.75949367088607 48.54683544303798 68.63164556962025 52.85443037974684Q66.50379746835443 57.1620253164557 62.87088607594937 59.44556962025317L66.50379746835443 68.7873417721519Q66.81518987341772 69.41012658227848 66.81518987341772 70.03291139240507Q66.81518987341772 74.39240506329114 54.87848101265823 75.11898734177215Q54.87848101265823 76.77974683544304 56.12405063291139 77.14303797468355Q57.369620253164555 77.50632911392405 59.756962025316454 77.50632911392405H74.70379746835442Q78.33670886075949 77.50632911392405 81.34683544303797 78.49240506329114Q84.35696202531645 79.47848101265824 86.01772151898734 80.93164556962026V91.0H83.42278481012659Q82.69620253164557 86.5367088607595 75.53417721518987 86.5367088607595H56.12405063291139Q51.55696202531646 86.5367088607595 50.0 83.73417721518987Q48.44303797468354 86.5367088607595 43.87594936708861 86.5367088607595H24.465822784810126Q17.303797468354432 86.5367088607595 16.577215189873417 91.0ZM48.23544303797468 55.605063291139246H51.76455696202532V37.129113924050635H60.06835443037975V33.80759493670887H51.76455696202532V25.503797468354435H48.23544303797468V33.80759493670887H39.93164556962025V37.129113924050635H48.23544303797468ZM39.93164556962025 65.88101265822786Q42.94177215189873 64.84303797468354 50.0 64.84303797468354Q57.05822784810127 64.84303797468354 60.06835443037975 65.88101265822786L58.51139240506329 62.040506329113924Q56.22784810126582 62.45569620253165 54.20379746835443 62.66329113924051Q52.17974683544304 62.87088607594937 50.0 62.87088607594937Q47.82025316455696 62.87088607594937 45.79620253164557 62.66329113924051Q43.77215189873418 62.45569620253165 41.48860759493671 62.040506329113924ZM50.0 71.79746835443038Q52.90632911392405 71.79746835443038 54.93037974683544 71.64177215189873Q56.95443037974683 71.48607594936709 58.30379746835443 71.27848101265823Q61.00253164556962 70.75949367088609 61.00253164556962 70.03291139240507Q61.00253164556962 69.30632911392405 58.09620253164557 68.68354430379748Q56.643037974683544 68.37215189873419 54.618987341772154 68.26835443037976Q52.59493670886076 68.16455696202532 50.0 68.16455696202532Q47.40506329113924 68.16455696202532 45.381012658227846 68.26835443037976Q43.356962025316456 68.37215189873419 41.90379746835443 68.68354430379748Q38.99746835443038 69.30632911392405 38.99746835443038 70.03291139240507Q38.99746835443038 70.75949367088609 41.69620253164557 71.27848101265823Q43.04556962025316 71.48607594936709 45.06962025316456 71.64177215189873Q47.09367088607595 71.79746835443038 50.0 71.79746835443038Z"/></symbol><symbol id="demo-icon-N" viewBox="0 0 100 100"><path d="M32.46675358539765 91.0Q32.46675358539765 85.76140808344198 33.7496740547588 81.3780964797914Q35.03259452411994 76.99478487614081 36.63624511082138 74.7496740547588Q37.49152542372881 73.57366362451108 39.25554106910039 71.59582790091264Q41.01955671447197 69.6179921773142 43.906127770534546 66.73142112125163Q47.327249022164274 63.3102998696219 48.77053455019556 61.11864406779661Q50.21382007822685 58.92698826597132 50.21382007822685 56.68187744458931Q50.21382007822685 55.61277705345502 50.0 54.75749674054759H49.57235984354628Q49.46544980443285 55.61277705345502 48.02216427640156 57.21642764015645Q46.57887874837027 58.82007822685789 44.44067796610169 59.46153846153846Q43.371577574967404 59.78226857887875 41.607561929595825 60.049543676662324Q39.843546284224246 60.31681877444589 37.38461538461538 60.53063885267275Q36.101694915254235 61.385919165580184 34.658409387222946 62.882659713168195Q33.21512385919165 64.3794002607562 31.611473272490215 66.51760104302477Q28.40417209908735 70.68709256844849 25.838331160365055 70.68709256844849Q23.058670143415902 70.68709256844849 21.294654498044324 70.04563233376793Q19.530638852672748 69.40417209908736 18.46153846153846 67.69361147327248L13.650586701434158 60.10299869621903Q14.39895697522816 58.71316818774446 15.200782268578877 56.574967405475874Q16.002607561929594 54.4367666232073 16.964797913950452 51.76401564537158Q17.926988265971314 48.98435462842242 18.942633637548887 47.00651890482399Q19.958279009126464 45.02868318122555 20.813559322033896 43.95958279009126Q22.631029986962186 41.607561929595825 23.913950456323334 37.01043024771838Q24.769230769230766 33.910039113428944 25.571056062581484 31.93220338983051Q26.3728813559322 29.954367666232073 27.869621903520205 28.45762711864407Q29.36636245110821 26.960886571056065 32.359843546284225 25.35723598435463Q33.32203389830508 22.256844850065193 33.32203389830508 18.835723598435465Q33.32203389830508 17.1251629726206 33.10821382007822 15.468057366362451Q32.89439374185137 13.810951760104302 32.46675358539765 12.100391134289438H35.03259452411994Q40.69882659713168 14.238591916558022 41.8748370273794 19.58409387222946H42.51629726205997Q42.943937418513684 18.621903520208605 43.157757496740544 16.3767926988266Q43.371577574967404 14.131681877444592 43.371577574967404 12.634941329856588Q43.371577574967404 11.672750977835719 43.31812255541069 10.710560625814857Q43.264667535853974 9.748370273793995 43.157757496740544 9.0H46.899608865710555Q50.10691003911342 10.710560625814864 52.03129074315515 14.238591916558015Q53.95567144719687 17.766623207301166 53.95567144719687 21.829204693611473Q60.58409387222946 23.646675358539767 66.51760104302477 28.564537157757496Q72.45110821382008 33.482398956975224 76.88787483702737 41.07301173402868Q81.32464146023467 48.66362451108214 83.35593220338983 58.4993481095176Q84.85267275097783 65.87614080834419 85.60104302477183 73.73402868318122Q86.34941329856584 81.59191655801826 86.34941329856584 90.03780964797915V91.0ZM72.02346805736636 83.83702737940025H79.07953063885267Q79.07953063885267 75.49804432855281 78.17079530638853 67.58670143415907Q77.26205997392438 59.67535853976532 75.33767926988266 53.04693611473272Q73.41329856584093 46.41851368970013 70.20599739243806 41.928292046936114Q67.85397653194264 38.507170795306386 65.39504563233376 35.94132985658409Q62.9361147327249 33.3754889178618 60.37027379400261 31.771838331160367L59.408083441981745 32.41329856584094Q63.89830508474576 36.15514993481095 66.83833116036506 40.698826597131685Q69.77835723598436 45.24250325945241 71.27509778357236 52.08474576271186Q72.77183833116037 58.92698826597132 72.77183833116037 69.83181225554107Q72.77183833116037 73.78748370273794 72.61147327249023 77.31551499348109Q72.45110821382008 80.84354628422425 72.02346805736636 83.83702737940025ZM34.818774445893084 38.186440677966104Q36.208604954367665 38.186440677966104 37.49152542372881 37.11734028683181Q38.77444589308996 36.04823989569752 40.164276401564535 36.04823989569752L41.01955671447197 36.15514993481095V35.19295958279009L38.02607561929595 34.337679269882656Q37.38461538461538 34.123859191655804 36.68970013037809 34.016949152542374Q35.994784876140805 33.910039113428944 35.35332464146023 33.910039113428944Q33.64276401564537 33.910039113428944 32.52020860495436 34.551499348109516Q31.397653194263363 35.19295958279009 31.397653194263363 36.36897001303781V37.11734028683181L31.504563233376793 37.544980443285525Q32.359843546284225 38.186440677966104 34.818774445893084 38.186440677966104ZM24.12777053455019 61.172099087353324Q24.44850065189048 59.67535853976532 25.6245110821382 57.69752281616688Q26.800521512385917 55.71968709256845 28.938722294654497 54.222946544980445L28.51108213820078 53.688396349413296Q25.51760104302477 53.795306388526726 23.64667535853976 55.23859191655802Q21.775749674054754 56.68187744458931 21.241199478487612 58.82007822685789Q21.668839634941328 59.67535853976532 22.577574967405475 60.37027379400261Q23.48631029986962 61.065189048239894 24.12777053455019 61.172099087353324Z"/></symbol></svg><div class="hero hero-next"><div class="hero-copy"><span class="eyebrow hero-eyebrow"><span></span>Wandelzug von DenkArena</span>
+   <h1><span>Ein Zug.</span><em>Eine andere Figur.</em></h1><p class="lead">Sammle alle Münzen – und denke mit jeder neuen Figur weiter. Spiele Wandelzug direkt im Browser. In DenkArena warten außerdem Schach, Partieanalyse und weitere Denkspiele.</p>
+   <div class="cta"><a class="btn primary" href="wandelzug.html?lang=de">Wandelzug spielen<span aria-hidden="true">↗</span></a><span class="btn soon" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.2v13.6c0 .8.9 1.3 1.6.9l10.6-6.8c.6-.4.6-1.3 0-1.7L9.6 4.3C8.9 3.9 8 4.4 8 5.2z"/></svg>Bald bei Google Play</span></div><p class="note">Die App ist gerade im Test. Du willst schon jetzt mitspielen? Schreib uns an <a href="mailto:support@denkarena.com">support@denkarena.com</a>.</p>
+   <div class="hero-path"><a href="#spiele"><span aria-hidden="true">01</span>Spielen</a><a href="#einblicke"><span aria-hidden="true">02</span>Züge verstehen</a><a href="#wandelzug"><span aria-hidden="true">03</span>Wandelzug kennenlernen</a></div></div>
+   <div class="hero-experience"><div class="experience-head"><span>Wandelzug</span><small>Ein Beispiel zum Ausprobieren</small></div>
+   <div class="hero-demo" data-demo><p class="demo-instruction">Sammle alle drei Münzen. Tippe die Figur an und dann ein markiertes Feld – oder zieh sie direkt dorthin.</p>
+   <div class="demo-sequence" aria-label="Nach jedem Zug eine andere Figur."><span class="demo-kind active"><span class="demo-kind-icon"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#demo-icon-R"/></svg></span><span>Turm</span></span><span class="demo-arrow" aria-hidden="true">→</span><span class="demo-kind"><span class="demo-kind-icon"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#demo-icon-B"/></svg></span><span>Läufer</span></span><span class="demo-arrow" aria-hidden="true">→</span><span class="demo-kind"><span class="demo-kind-icon"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#demo-icon-N"/></svg></span><span>Springer</span></span></div>
+   <div class="demo-board" role="img" aria-label="Wandelzug-Beispiel mit drei Münzen und einer wechselnden Figur"><div class="demo-cells"><button type="button" disabled tabindex="-1" data-sq="0" class="demo-cell light" aria-label="a6"><span class="demo-coordinate rank">6</span></button><button type="button" disabled tabindex="-1" data-sq="1" class="demo-cell dark" aria-label="b6"></button><button type="button" disabled tabindex="-1" data-sq="2" class="demo-cell light" aria-label="c6"></button><button type="button" disabled tabindex="-1" data-sq="3" class="demo-cell dark" aria-label="d6"></button><button type="button" disabled tabindex="-1" data-sq="4" class="demo-cell light" aria-label="e6"></button><button type="button" disabled tabindex="-1" data-sq="5" class="demo-cell dark" aria-label="f6"></button><button type="button" disabled tabindex="-1" data-sq="6" class="demo-cell dark" aria-label="a5"><span class="demo-coordinate rank">5</span></button><button type="button" disabled tabindex="-1" data-sq="7" class="demo-cell light wall" aria-label="b5"></button><button type="button" disabled tabindex="-1" data-sq="8" class="demo-cell dark" aria-label="c5"></button><button type="button" disabled tabindex="-1" data-sq="9" class="demo-cell light" aria-label="d5"></button><button type="button" disabled tabindex="-1" data-sq="10" class="demo-cell dark" aria-label="e5"></button><button type="button" disabled tabindex="-1" data-sq="11" class="demo-cell light" aria-label="f5"></button><button type="button" disabled tabindex="-1" data-sq="12" class="demo-cell light" aria-label="a4"><span class="demo-coordinate rank">4</span></button><button type="button" disabled tabindex="-1" data-sq="13" class="demo-cell dark" aria-label="b4"></button><button type="button" disabled tabindex="-1" data-sq="14" class="demo-cell light" aria-label="c4"></button><button type="button" disabled tabindex="-1" data-sq="15" class="demo-cell dark" aria-label="d4"></button><button type="button" disabled tabindex="-1" data-sq="16" class="demo-cell light" aria-label="e4"></button><button type="button" disabled tabindex="-1" data-sq="17" class="demo-cell dark" aria-label="f4"><i class="demo-coin" data-coin="17"></i></button><button type="button" disabled tabindex="-1" data-sq="18" class="demo-cell dark" aria-label="a3"><span class="demo-coordinate rank">3</span></button><button type="button" disabled tabindex="-1" data-sq="19" class="demo-cell light wall" aria-label="b3"></button><button type="button" disabled tabindex="-1" data-sq="20" class="demo-cell dark" aria-label="c3"></button><button type="button" disabled tabindex="-1" data-sq="21" class="demo-cell light wall" aria-label="d3"></button><button type="button" disabled tabindex="-1" data-sq="22" class="demo-cell dark" aria-label="e3"></button><button type="button" disabled tabindex="-1" data-sq="23" class="demo-cell light" aria-label="f3"></button><button type="button" disabled tabindex="-1" data-sq="24" class="demo-cell light" aria-label="a2"><span class="demo-coordinate rank">2</span></button><button type="button" disabled tabindex="-1" data-sq="25" class="demo-cell dark" aria-label="b2"></button><button type="button" disabled tabindex="-1" data-sq="26" class="demo-cell light" aria-label="c2"></button><button type="button" disabled tabindex="-1" data-sq="27" class="demo-cell dark" aria-label="d2"></button><button type="button" disabled tabindex="-1" data-sq="28" class="demo-cell light" aria-label="e2"><i class="demo-coin" data-coin="28"></i></button><button type="button" disabled tabindex="-1" data-sq="29" class="demo-cell dark" aria-label="f2"></button><button type="button" disabled tabindex="-1" data-sq="30" class="demo-cell dark" aria-label="a1"><span class="demo-coordinate rank">1</span><span class="demo-coordinate file">a</span></button><button type="button" disabled tabindex="-1" data-sq="31" class="demo-cell light" aria-label="b1"><span class="demo-coordinate file">b</span></button><button type="button" disabled tabindex="-1" data-sq="32" class="demo-cell dark" aria-label="c1"><i class="demo-coin" data-coin="32"></i><span class="demo-coordinate file">c</span></button><button type="button" disabled tabindex="-1" data-sq="33" class="demo-cell light" aria-label="d1"><span class="demo-coordinate file">d</span></button><button type="button" disabled tabindex="-1" data-sq="34" class="demo-cell dark" aria-label="e1"><span class="demo-coordinate file">e</span></button><button type="button" disabled tabindex="-1" data-sq="35" class="demo-cell light" aria-label="f1"><span class="demo-coordinate file">f</span></button></div>
+   <svg class="demo-route" viewBox="0 0 6 6" aria-hidden="true"><path d="M.5 5.5"/></svg>
+   <span class="demo-piece" style="left:8.333333%;top:91.666667%" aria-hidden="true"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#demo-icon-R"/></svg></span></div>
+   <div class="demo-result"><span class="demo-count">0 / 3 <span>Münzen</span></span><div class="demo-actions" hidden><button class="demo-undo demo-reset" type="button" aria-label="Zug zurück" title="Zug zurück">↶</button><button class="demo-reset demo-restart" type="button" aria-label="Noch einmal" title="Noch einmal">↺</button><button class="demo-next" type="button">Tipp<span aria-hidden="true">?</span></button></div></div>
+   <p class="demo-progress">Züge: <span>0</span> · Bestwert: 3</p><p class="demo-state" aria-live="polite" aria-atomic="true">Wähle die Figur aus.</p>
+   <noscript><p class="demo-static-note">Nach jedem Zug eine andere Figur.</p></noscript></div>
+   <div class="experience-foot"><span aria-hidden="true"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#demo-icon-N"/></svg></span><p>Nach jedem Zug eine andere Figur.<a href="#wandelzug">Wandelzug kennenlernen ↗</a></p></div></div></div>
+<div class="facts"><div><b>240</b><span>Wandelzug-Level</span></div><div><b>800+</b><span>Schachaufgaben</span></div><div><b>10</b><span>Schach-Spielstärken</span></div><div><b>8</b><span>Sprachen</span></div></div>
+</div>
+<section id="wandelzug"><div class="wrap"><h2>Wandelzug: Jeder Zug wandelt deine Figur</h2><p class="sec-lead">Sammle Münzen mit einer Figur, deren Zugweise sich nach jedem Zug ändert. Die Figuren ziehen wie im Schach – das Ziel ist ein anderes.</p>
+<div class="wz"><div class="phone"><div class="scr"><img src="img/wandelzug-de.webp" width="780" height="1688" alt="Bildschirm: Wandelzug" loading="lazy" decoding="async"></div></div><div><div class="steps"><div class="step"><div><h3>Sammle alle Münzen</h3><p>Lande mit deiner Figur auf jedem Münzfeld. Je weniger Züge du brauchst, desto mehr Sterne gibt es.</p></div></div><div class="step"><div><h3>Die Figur wechselt</h3><p>Nach jedem Zug wird sie zur nächsten Figur der Zugfolge, etwa vom Turm zum Läufer und dann zum Springer.</p></div></div><div class="step"><div><h3>Level, Werkstatt und Tagesrätsel</h3><p>240 Level in zwanzig Kapiteln, 96 davon kostenlos, und jeden Tag ein Rätsel, das für alle gleich ist. In der Werkstatt baust du eigene Level und teilst sie per Code.</p></div></div></div><p class="small-note">Nach und nach kommen Portale, Tore mit Schlüssel, Prägefelder und Zahlenmünzen dazu.</p></div></div></div></section>
+<section id="spiele"><div class="wrap"><h2>Die Spiele</h2>
+<div class="grid"><div class="card"><span class="glyph">♞</span><h3>Schach</h3><p>Gegen den Computer mit zehn Spielstärken, zu zweit am selben Handy oder online mit Schachuhr. Partien über „Gegner suchen“ zählen für deine Schach-Wertung; Freundespartien per Code bleiben ungewertet.</p></div><div class="card"><span class="glyph">♛</span><h3>Partie-Analyse</h3><p>Nach der Partie zeigt die Analyse wichtige Fehler und bessere Züge. Unter „Aus Fehlern lernen“ kehrst du zu diesen Stellungen zurück und suchst selbst einen besseren Zug.</p></div><div class="card"><span class="glyph">♟</span><h3>Schach lernen</h3><p>13 kurze Lektionen: wie jede Figur zieht, wie man schlägt, Schach abwehrt und mattsetzt. Zum Schluss spielst du deine erste Partie.</p></div><div class="card"><span class="glyph">♚</span><h3>Schachaufgaben</h3><p>Über 800 geprüfte Mattaufgaben von Matt in 1 bis Matt in 3. Übe ohne Zeitlimit, löse die Tagesaufgabe oder spiele den Drei-Minuten-Sprint.</p></div><div class="card"><span class="glyph">#</span><h3>Sudoku</h3><p>120 Sudokus, eingeteilt nach der Technik, die man zum Lösen braucht. Mit Notizen, Tipps und Fehlerprüfung nach Wahl.</p></div><div class="card"><span class="glyph">◆</span><h3>Minensucher und Vier gewinnt</h3><p>Minensucher, bei dem jedes Feld ohne Raten lösbar ist. Vier gewinnt gegen den Computer in vier Stufen.</p></div></div></div></section>
+<section id="einblicke"><div class="wrap"><div class="showcase-head"><h2>Ein Blick in DenkArena</h2><p>Wähle einen Bereich aus und sieh dir an, wie er in der App funktioniert.</p></div>
+    <div class="app-showcase"><div class="preview-tabs" role="tablist" aria-label="Bereiche der App" hidden><button type="button" class="preview-tab" role="tab" id="preview-tab-analyse" aria-controls="preview-analyse" aria-selected="true" tabindex="0"><strong>Partie-Analyse</strong><small>Verstehe deine Fehler</small></button><button type="button" class="preview-tab" role="tab" id="preview-tab-wandelzug" aria-controls="preview-wandelzug" aria-selected="false" tabindex="-1"><strong>Wandelzug</strong><small>Deine Figur wechselt mit jedem Zug</small></button><button type="button" class="preview-tab" role="tab" id="preview-tab-schach" aria-controls="preview-schach" aria-selected="false" tabindex="-1"><strong>Schach</strong><small>Deine Partie im Mittelpunkt</small></button><button type="button" class="preview-tab" role="tab" id="preview-tab-aufgaben" aria-controls="preview-aufgaben" aria-selected="false" tabindex="-1"><strong>Schachaufgaben</strong><small>Finde den entscheidenden Zug</small></button><button type="button" class="preview-tab" role="tab" id="preview-tab-sudoku" aria-controls="preview-sudoku" aria-selected="false" tabindex="-1"><strong>Sudoku</strong><small>Platz für deine Überlegungen</small></button><button type="button" class="preview-tab" role="tab" id="preview-tab-home" aria-controls="preview-home" aria-selected="false" tabindex="-1"><strong>Startseite</strong><small>Zurück ins Spiel</small></button></div>
+    <div class="preview-stage"><figure class="preview-panel" role="tabpanel" id="preview-analyse" aria-labelledby="preview-tab-analyse" tabindex="0">
+      <a class="preview-zoom" href="img/analyse-de.webp" data-title="Partie-Analyse" target="_blank" rel="noopener" aria-label="Partie-Analyse: Bild vergrößern"><img src="img/analyse-de.webp" width="780" height="1688" alt="Bildschirm: Partie-Analyse" loading="lazy" decoding="async"><span class="zoom-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg>Bild vergrößern</span></a>
+      <figcaption><span class="eyebrow">Partie-Analyse</span><h3>Verstehe deine Fehler</h3><p>Sieh dir wichtige Momente einer Partie an. Die Analyse zeigt bessere Züge und erklärt, was sie ändern.</p></figcaption></figure><figure class="preview-panel" role="tabpanel" id="preview-wandelzug" aria-labelledby="preview-tab-wandelzug" tabindex="0">
+      <a class="preview-zoom" href="img/wandelzug-de.webp" data-title="Wandelzug" target="_blank" rel="noopener" aria-label="Wandelzug: Bild vergrößern"><img src="img/wandelzug-de.webp" width="780" height="1688" alt="Bildschirm: Wandelzug" loading="lazy" decoding="async"><span class="zoom-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg>Bild vergrößern</span></a>
+      <figcaption><span class="eyebrow">Wandelzug</span><h3>Deine Figur wechselt mit jedem Zug</h3><p>Sammle die Münzen und plane die nächste Figur mit ein. Die vorgegebene Folge zeigt dir, wie sie sich verwandelt.</p></figcaption></figure><figure class="preview-panel" role="tabpanel" id="preview-schach" aria-labelledby="preview-tab-schach" tabindex="0">
+      <a class="preview-zoom" href="img/schach-de.webp" data-title="Schach" target="_blank" rel="noopener" aria-label="Schach: Bild vergrößern"><img src="img/schach-de.webp" width="780" height="1688" alt="Bildschirm: Schach" loading="lazy" decoding="async"><span class="zoom-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg>Bild vergrößern</span></a>
+      <figcaption><span class="eyebrow">Schach</span><h3>Deine Partie im Mittelpunkt</h3><p>Brett, Schachuhr und Züge an einem Ort. Spiele gegen den Computer, zu zweit oder online.</p></figcaption></figure><figure class="preview-panel" role="tabpanel" id="preview-aufgaben" aria-labelledby="preview-tab-aufgaben" tabindex="0">
+      <a class="preview-zoom" href="img/aufgaben-de.webp" data-title="Schachaufgaben" target="_blank" rel="noopener" aria-label="Schachaufgaben: Bild vergrößern"><img src="img/aufgaben-de.webp" width="780" height="1688" alt="Bildschirm: Schachaufgaben" loading="lazy" decoding="async"><span class="zoom-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg>Bild vergrößern</span></a>
+      <figcaption><span class="eyebrow">Schachaufgaben</span><h3>Finde den entscheidenden Zug</h3><p>Übe Mattaufgaben ohne Zeitlimit. Wenn du eine Lösung ansiehst, kannst du sie auf dem Brett nachvollziehen.</p></figcaption></figure><figure class="preview-panel" role="tabpanel" id="preview-sudoku" aria-labelledby="preview-tab-sudoku" tabindex="0">
+      <a class="preview-zoom" href="img/sudoku-de.webp" data-title="Sudoku" target="_blank" rel="noopener" aria-label="Sudoku: Bild vergrößern"><img src="img/sudoku-de.webp" width="780" height="1688" alt="Bildschirm: Sudoku" loading="lazy" decoding="async"><span class="zoom-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg>Bild vergrößern</span></a>
+      <figcaption><span class="eyebrow">Sudoku</span><h3>Platz für deine Überlegungen</h3><p>Trage Zahlen ein, halte Kandidaten als Notizen fest und wähle selbst, ob Fehler sofort angezeigt werden.</p></figcaption></figure><figure class="preview-panel" role="tabpanel" id="preview-home" aria-labelledby="preview-tab-home" tabindex="0">
+      <a class="preview-zoom" href="img/home-de.webp" data-title="Startseite" target="_blank" rel="noopener" aria-label="Startseite: Bild vergrößern"><img src="img/home-de.webp" width="780" height="1688" alt="Bildschirm: Startseite" loading="lazy" decoding="async"><span class="zoom-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg>Bild vergrößern</span></a>
+      <figcaption><span class="eyebrow">Startseite</span><h3>Zurück ins Spiel</h3><p>Setze offene Partien fort, wähle ein Spiel oder löse das Tagesrätsel. Dein Fortschritt bleibt im Blick.</p></figcaption></figure></div></div></div></section>
+<section><div class="wrap"><h2>Dranbleiben</h2>
+<div class="two"><div class="item"><i></i><div><b>Tägliche Serie</b><p>Löse das tägliche Wandelzug-Rätsel und halte deine Serie. Joker retten sie, wenn du mal einen Tag verpasst.</p></div></div><div class="item"><i></i><div><b>Schach-Wertung und Freundesrangliste</b><p>Eine eigene Online-Schach-Wertung für Bullet, Blitz und Schnellschach. In einer Freundesrangliste vergleichst du deine Ergebnisse jede Woche mit deiner Gruppe.</p></div></div><div class="item"><i></i><div><b>Erfolge und Profil</b><p>Statistik für jedes Spiel, Erfolge mit Titeln und Rahmen, die es im Shop nicht gibt, und ein Denkprofil, das deinen Spielfortschritt zusammenfasst.</p></div></div><div class="item"><i></i><div><b>Partien teilen</b><p>Schick eine Schachpartie als Link. Wer ihn öffnet, kann sie Zug für Zug nachspielen und selbst weiterspielen.</p></div></div></div></div></section>
+<section><div class="wrap"><h2>Fair gemacht</h2>
+<div class="two"><div class="item"><i></i><div><b>Ohne Konto spielbar</b><p>Die Spiele gegen den Computer und die Rätsel kannst du ohne Konto spielen. Für Online-Schach und die Sicherung deines Fortschritts brauchst du ein kostenloses Konto: E-Mail und Code, kein Passwort.</p></div></div><div class="item"><i></i><div><b>Keine Werbung mitten im Spiel</b><p>Werbung gibt es nur zwischen den Partien, nie während du spielst.</p></div></div><div class="item"><i></i><div><b>Premium im Monats- oder Jahresabo</b><p>Keine Werbung, zusätzliche Level in Wandelzug, Sudoku und Schachaufgaben, alle Computerstufen und eigene Level veröffentlichen. Jederzeit kündbar.</p></div></div><div class="item"><i></i><div><b>Bedienungshilfen</b><p>Größere Schrift, stärkere Kontraste und zusätzliche Muster statt reiner Farbunterschiede. <a href="#bedienungshilfen">Alle Hilfen ansehen</a></p></div></div></div></div></section>
+<section id="bedienungshilfen" aria-labelledby="accessibility-heading"><div class="wrap"><h2 id="accessibility-heading">Bedienungshilfen für bessere Sicht und Bedienung</h2><p class="sec-lead">Größere Schrift, stärkere Kontraste und deutlichere Figuren unterstützen dich, wenn du schlechter siehst. Zusätzliche Muster und Symbole helfen, wenn du Farben schwer unterscheiden kannst. Im Minensucher kannst du die Feldgröße anpassen und Animationen lassen sich reduzieren.</p><p>Alle Optionen findest du unter <strong>Einstellungen → Bedienungshilfen</strong>.</p></div></section>
+<section id="mehr"><div class="wrap"><h2>Noch ein Spiel von uns</h2>
+<a class="more-game" href="snowdial/"><img src="snowdial/img/icon-192.png" width="96" height="96" alt=""><div><h3>Snowdial</h3><p class="more-tag">Das Schatten-Denkspiel</p><p>Snowdi der Schneemann darf nur im Schatten stehen, und der wandert mit jedem Zug. 360 Rätsel in 12 Welten, Tagesrätsel und Denksport.</p></div><span class="more-btn">Snowdial ansehen</span></a></div></section>
+<section id="fragen"><div class="wrap"><h2>Häufige Fragen</h2>
+<div class="faq"><details name="faq"><summary>Was kostet DenkArena?</summary><p>Die App ist kostenlos und zeigt zwischendurch Werbung, aber nie während einer Partie. Premium gibt es als Monats- oder Jahresabo, das Jahresabo kannst du vorher kostenlos testen. Den aktuellen Preis siehst du in der App und bei Google Play. Jederzeit kündbar.</p></details><details name="faq"><summary>Brauche ich ein Konto?</summary><p>Für die Rätsel und Spiele gegen den Computer nicht. Ein kostenloses Konto brauchst du für Online-Schach. Damit kannst du auch deinen Fortschritt sichern und auf ein anderes Handy übertragen.</p></details><details name="faq"><summary>Gibt es DenkArena fürs iPhone?</summary><p>Im Moment gibt es DenkArena nur für Android.</p></details><details name="faq"><summary>Welche Daten speichert ihr?</summary><p>Nur, was die Funktionen der App brauchen. Alles Genaue steht in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p></details><details name="faq"><summary>Wie kann ich mein Konto löschen?</summary><p>In der App unter Einstellungen oder auf der Seite <a href="konto-loeschen.html">Konto löschen</a>.</p></details></div>
+<div class="contact"><h2>Hast du Fragen, eine Idee oder einen Fehler gefunden?</h2><p>Schreib uns, wir lesen jede Nachricht.</p><a class="btn primary" href="mailto:support@denkarena.com">support@denkarena.com</a></div>
+</div></section></main><div class="wrap">
+<footer><a class="brand" href="index.html" style="font-size:20px"><svg class="logo" width="26" height="26" viewBox="16 13 88 88" aria-hidden="true"><path d="M58.5 92H34v-6h6.5L44.5 58C42.5 55 41 52.5 40.5 50L30 52.5l-4-2.5 4.5-3-6 .2-1.5-7L36.5 26c4-4.5 9.5-7 14-8l3.5-6 4.5 3.5z" fill="#ece5d5"/><circle cx="44" cy="28" r="2.7" fill="#0f1513"/><circle cx="27.5" cy="41.5" r="1.3" fill="#0f1513"/><path d="M61.5 92H86v-6h-6.5l-4.5-30V43l6-5V19h-5.5v6H71v-6h-4.5v6h-5z" fill="#c9a45c"/></svg><span>Denk<b>Arena</b></span></a><nav><a href="datenschutz.html">Datenschutz</a><a href="nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="impressum.html">Impressum</a><a href="konto-loeschen.html">Konto löschen</a></nav><span>© 2026 DenkArena</span></footer>
+</div>
+<dialog class="shot-dialog" aria-labelledby="image-title"><div class="dialog-head"><h2 id="image-title">Ein Blick in DenkArena</h2><a class="original-image" href="img/analyse-de.webp" target="_blank" rel="noopener">Original öffnen</a><button type="button" class="dialog-close" aria-label="Bild schließen" autofocus>×</button></div><div class="dialog-image"><img width="780" height="1688" alt=""></div></dialog>
+<script>(function enhanceLanding() {
+  const menu = document.querySelector('.mobile-menu');
+  if (menu) {
+    menu.addEventListener('click', e => { if (e.target.closest('a')) menu.open = false; });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); } });
+    document.addEventListener('click', e => { if (menu.open && !menu.contains(e.target)) menu.open = false; });
+  }
+  const root = document.querySelector('.app-showcase');
+  if (!root) return;
+  const tabs = [...root.querySelectorAll('[role=tab]')];
+  const panels = [...root.querySelectorAll('[role=tabpanel]')];
+  const nav = root.querySelector('[role=tablist]');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const wide = matchMedia('(min-width: 981px)');
+  let current = 0, request = 0, animation;
+  nav.hidden = false;
+  root.classList.add('enhanced');
+  panels.forEach((p, i) => { p.hidden = i !== 0; });
+  const orient = () => nav.setAttribute('aria-orientation', wide.matches ? 'vertical' : 'horizontal');
+  orient(); wide.addEventListener('change', orient);
+  async function select(index, focus = false) {
+    const ticket = ++request;
+    animation?.cancel();
+    tabs.forEach((t, i) => { t.setAttribute('aria-selected', String(i === index)); t.tabIndex = i === index ? 0 : -1; });
+    if (focus) {
+      tabs[index].focus({ preventScroll: true });
+      if (!wide.matches) nav.scrollTo({ left: tabs[index].offsetLeft - nav.offsetLeft - 12, behavior: reduced.matches ? 'instant' : 'smooth' });
+    }
+    const image = panels[index].querySelector('img');
+    image.loading = 'eager'; // Hidden lazy images otherwise need not start loading.
+    await image.decode().catch(() => {});
+    if (ticket !== request) return;
+    if (index === current) return;
+    if (!reduced.matches && panels[current].animate) {
+      animation = panels[current].animate([{ opacity: 1 }, { opacity: 0 }], { duration: 110, easing: 'ease-out' });
+      await animation.finished.catch(() => {});
+    }
+    if (ticket !== request) return;
+    panels.forEach((p, i) => { p.hidden = i !== index; });
+    current = index;
+    if (!reduced.matches && panels[index].animate) animation = panels[index].animate(
+      [{ opacity: 0, transform: 'translateY(5px)' }, { opacity: 1, transform: 'translateY(0)' }],
+      { duration: 240, easing: 'cubic-bezier(.2,.7,.2,1)' });
+  }
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => { void select(index); });
+    tab.addEventListener('keydown', e => {
+      let next;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (index + 1) % tabs.length;
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (index + tabs.length - 1) % tabs.length;
+      if (e.key === 'Home') next = 0;
+      if (e.key === 'End') next = tabs.length - 1;
+      if (next !== undefined) { e.preventDefault(); void select(next, true); }
+    });
+  });
+  const dialog = document.querySelector('.shot-dialog');
+  if (!dialog || typeof dialog.showModal !== 'function') return;
+  const fullImage = dialog.querySelector('img');
+  const title = dialog.querySelector('h2');
+  const original = dialog.querySelector('.original-image');
+  root.querySelectorAll('.preview-zoom').forEach(link => link.addEventListener('click', e => {
+    e.preventDefault();
+    const image = link.querySelector('img');
+    fullImage.src = link.href; fullImage.alt = image.alt;
+    title.textContent = link.dataset.title; original.href = link.href;
+    dialog.showModal(); dialog.scrollTop = 0;
+    document.documentElement.classList.add('image-open');
+  }));
+  dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', e => {
+    const b = dialog.getBoundingClientRect();
+    if (e.target === dialog && (e.clientX < b.left || e.clientX > b.right || e.clientY < b.top || e.clientY > b.bottom)) dialog.close();
+  });
+  dialog.addEventListener('close', () => document.documentElement.classList.remove('image-open'));
+})();
+(()=>{const demoMoves=function demoMoves(demo,state){
+ const out=[],r=Math.floor(state.pos/6),c=state.pos%6,kind=demo.seq[state.idx];
+ if(kind==='N'){
+  for(const [dr,dc]of [[-2,-1],[-2,1],[-1,-2],[-1,2],[1,-2],[1,2],[2,-1],[2,1]]){
+   const y=r+dr,x=c+dc;if(y>=0&&y<6&&x>=0&&x<6&&!demo.walls.includes(y*6+x))out.push(y*6+x);
+  }
+ }else{
+  for(const[dr,dc]of kind==='B'?[[-1,-1],[-1,1],[1,-1],[1,1]]:[[-1,0],[1,0],[0,-1],[0,1]]){
+   let y=r+dr,x=c+dc;while(y>=0&&y<6&&x>=0&&x<6&&!demo.walls.includes(y*6+x)){out.push(y*6+x);y+=dr;x+=dc;}
+  }
+ }
+ return out;
+};const demoAfter=function demoAfter(demo,state,to){
+ if(!demoMoves(demo,state).includes(to))return null;
+ const coin=demo.coins.indexOf(to);
+ return{pos:to,idx:(state.idx+1)%demo.seq.length,mask:state.mask|(coin<0?0:1<<coin)};
+};const demoSolve=function demoSolve(demo,state){
+ const full=(1<<demo.coins.length)-1,key=s=>s.pos+':'+s.idx+':'+s.mask;
+ if(state.mask===full)return[];
+ const queue=[{state,path:[]}],seen=new Set([key(state)]);
+ for(let head=0;head<queue.length;head++){
+  const item=queue[head];
+  for(const to of demoMoves(demo,item.state)){
+   const next=demoAfter(demo,item.state,to),k=key(next);if(seen.has(k))continue;
+   const path=[...item.path,to];if(next.mask===full)return path;
+   seen.add(k);queue.push({state:next,path});
+  }
+ }
+ return null;
+};(function enhanceHero(config,game) {
+ const root=document.querySelector('[data-demo]');
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ if(root){
+  const {demo,t}=config,board=root.querySelector('.demo-board'),piece=root.querySelector('.demo-piece');
+  const hint=root.querySelector('.demo-next'),reset=root.querySelector('.demo-restart'),undo=root.querySelector('.demo-undo');
+  const count=root.querySelector('.demo-count'),status=root.querySelector('.demo-state'),cells=[...root.querySelectorAll('.demo-cell')],kinds=[...root.querySelectorAll('.demo-kind')];
+  const route=root.querySelector('.demo-route path'),initial=()=>({pos:demo.start,idx:0,mask:0});
+  let state=initial(),history=[],selected=false,hintSquare=null,busy=false,generation=0,movement,drag=null,tap=null,suppressClick=false;
+  const won=()=>state.mask===(1<<demo.coins.length)-1;
+  const coordinate=sq=>'abcdef'[sq%6]+(6-Math.floor(sq/6));
+  const icon=kind=>'<svg viewBox="0 0 100 100" aria-hidden="true"><use href="#demo-icon-'+kind+'"/></svg>';
+  root.querySelector('.demo-actions').hidden=false;board.setAttribute('role','group');board.setAttribute('aria-label',t.board);
+  cells.forEach(cell=>cell.disabled=false);
+  function positionPiece(){piece.style.left=((state.pos%6+.5)/6*100)+'%';piece.style.top=((Math.floor(state.pos/6)+.5)/6*100)+'%';}
+  function trail(extra){
+   let d='M'+(demo.start%6+.5)+' '+(Math.floor(demo.start/6)+.5);
+   const positions=[...history.map(s=>s.pos),state.pos];if(extra!=null)positions.push(extra);
+   for(let i=1;i<positions.length;i++){
+    const from=positions[i-1],to=positions[i];
+    if(demo.seq[(i-1)%3]==='N'){
+     const vertical=Math.abs(Math.floor(to/6)-Math.floor(from/6))===2;
+     d+=' L'+(vertical?from%6+.5:to%6+.5)+' '+(vertical?Math.floor(to/6)+.5:Math.floor(from/6)+.5);
+    }
+    d+=' L'+(to%6+.5)+' '+(Math.floor(to/6)+.5);
+   }
+   route.setAttribute('d',d);
+  }
+  function draw(message){
+   positionPiece();piece.innerHTML=icon(demo.seq[state.idx]);kinds.forEach((k,i)=>k.classList.toggle('active',i===state.idx));
+   const legal=won()?[]:game.moves(demo,state);
+   cells.forEach((cell,sq)=>{
+    const coin=demo.coins.indexOf(sq),hasCoin=coin>=0&&!(state.mask&(1<<coin));
+    cell.classList.toggle('is-piece',sq===state.pos);cell.classList.toggle('selected',selected&&sq===state.pos);
+    cell.classList.toggle('available',selected&&legal.includes(sq));cell.classList.toggle('coin-option',selected&&legal.includes(sq)&&hasCoin);
+    cell.classList.toggle('target',sq===hintSquare);cell.tabIndex=sq===state.pos?0:-1;
+    cell.setAttribute('aria-disabled',String(demo.walls.includes(sq)||won()));
+    if(sq===state.pos)cell.setAttribute('aria-pressed',String(selected));else cell.removeAttribute('aria-pressed');
+    cell.setAttribute('aria-label',[coordinate(sq),sq===state.pos?t.names[state.idx]:'',hasCoin?t.coin:'',demo.walls.includes(sq)?t.wall:'',selected&&legal.includes(sq)?t.allowed:''].filter(Boolean).join(', '));
+   });
+   const n=demo.coins.filter((_,i)=>state.mask&(1<<i)).length;count.firstChild.textContent=n+' / 3 ';
+   root.querySelector('.demo-progress span').textContent=history.length;
+   root.querySelectorAll('.demo-coin').forEach(c=>c.classList.toggle('collected',!!(state.mask&(1<<demo.coins.indexOf(+c.dataset.coin)))));
+   undo.disabled=busy||!history.length;hint.disabled=busy;hint.firstChild.textContent=won()?t.replay:t.next;hint.setAttribute('aria-label',won()?t.again:t.next);
+   status.textContent=message||(won()?t.won+' '+t.moves+': '+history.length+'.':selected?t.names[state.idx]+': '+t.selected:t.start);
+   trail();
+  }
+  function cancel(){
+   generation++;movement?.cancel();piece.getAnimations().forEach(a=>a.cancel());busy=false;
+   tap=null;
+   if(drag){const id=drag.id;drag=null;if(board.hasPointerCapture(id))board.releasePointerCapture(id);}
+   piece.classList.remove('dragging','moving');root.classList.add('resetting');
+  }
+  function settle(){draw();requestAnimationFrame(()=>requestAnimationFrame(()=>root.classList.remove('resetting')));}
+  function restart(){cancel();state=initial();history=[];selected=false;hintSquare=null;settle();}
+  reset.addEventListener('click',restart);
+  undo.addEventListener('click',()=>{if(!history.length||busy)return;cancel();state=history.pop();selected=true;hintSquare=null;settle();});
+  async function move(to){
+   if(busy||won())return;
+   const next=game.after(demo,state,to);
+   if(!next){selected=true;draw(t.invalid);return;}
+   const ticket=++generation;busy=true;hint.disabled=true;undo.disabled=true;hintSquare=null;
+   cells.forEach(c=>c.classList.remove('target','available','coin-option'));piece.classList.add('moving');
+   const fromLeft=piece.style.left,fromTop=piece.style.top,toLeft=((to%6+.5)/6*100)+'%',toTop=((Math.floor(to/6)+.5)/6*100)+'%';
+   piece.style.left=toLeft;piece.style.top=toTop;trail(to);
+   if(demo.seq[state.idx]==='N'&&!reduced.matches&&piece.animate){
+    const vertical=Math.abs(Math.floor(to/6)-Math.floor(state.pos/6))===2;
+    movement=piece.animate([{left:fromLeft,top:fromTop,offset:0},{left:vertical?fromLeft:toLeft,top:vertical?toTop:fromTop,offset:.65},{left:toLeft,top:toTop,offset:1}],{duration:560,easing:'cubic-bezier(.3,0,.2,1)'});
+   }
+   if(!reduced.matches)await new Promise(r=>setTimeout(r,580));
+   if(ticket!==generation)return;
+   history.push(state);state=next;busy=false;selected=!won();piece.classList.remove('moving');draw();
+   if(!reduced.matches&&piece.animate)piece.animate([{opacity:.3,scale:.86},{opacity:1,scale:1}],{duration:220,easing:'ease-out'});
+  }
+  hint.addEventListener('click',()=>{
+   if(busy)return;if(won()){restart();return;}
+   const solution=game.solve(demo,state);selected=true;
+   if(!solution?.length){draw(t.noHint);return;}
+   hintSquare=solution[0];draw(t.hint+' '+coordinate(hintSquare)+'.');
+  });
+  function activate(to){
+   if(busy||won())return;
+   if(to===state.pos){selected=!selected;draw();}else if(selected)void move(to);else{selected=true;draw(t.names[state.idx]+': '+t.selected);}
+  }
+  board.addEventListener('click',e=>{
+   if(suppressClick&&e.detail>0){suppressClick=false;return;}
+   const cell=e.target.closest('[data-sq]');if(cell)activate(+cell.dataset.sq);
+  });
+  board.addEventListener('keydown',e=>{
+   const cell=e.target.closest('[data-sq]');if(!cell||busy)return;const sq=+cell.dataset.sq,r=Math.floor(sq/6),c=sq%6;
+   let to;
+   if(e.key==='ArrowLeft'&&c>0)to=sq-1;if(e.key==='ArrowRight'&&c<5)to=sq+1;
+   if(e.key==='ArrowUp'&&r>0)to=sq-6;if(e.key==='ArrowDown'&&r<5)to=sq+6;
+   if(e.key==='Home')to=e.ctrlKey?0:r*6;if(e.key==='End')to=e.ctrlKey?35:r*6+5;
+   if(to!==undefined){e.preventDefault();cells.forEach((el,i)=>el.tabIndex=i===to?0:-1);cells[to].focus({preventScroll:true});}
+   if(e.key==='Escape'){selected=false;hintSquare=null;draw();}
+  });
+  board.addEventListener('pointerdown',e=>{
+   suppressClick=false;
+   const cell=e.target.closest('[data-sq]');
+   tap=null;if(busy||won()||!e.isPrimary||e.button!==0||!cell)return;
+   tap={id:e.pointerId,sq:+cell.dataset.sq,x:e.clientX,y:e.clientY,moved:false};
+   if(tap.sq!==state.pos)return;
+   const b=board.getBoundingClientRect();drag={id:e.pointerId,x:e.clientX,y:e.clientY,moved:false,dx:(state.pos%6+.5)/6*b.width-(e.clientX-b.left),dy:(Math.floor(state.pos/6)+.5)/6*b.height-(e.clientY-b.top)};
+   board.setPointerCapture(e.pointerId);
+  });
+  board.addEventListener('pointermove',e=>{
+   if(tap&&tap.id===e.pointerId&&Math.hypot(e.clientX-tap.x,e.clientY-tap.y)>6)tap.moved=true;
+   if(!drag||drag.id!==e.pointerId)return;
+   if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)<6)return;
+   if(!drag.moved){drag.moved=true;selected=true;draw();piece.classList.add('dragging');}
+   e.preventDefault();const b=board.getBoundingClientRect();
+   piece.style.left=((e.clientX-b.left+drag.dx)/b.width*100)+'%';piece.style.top=((e.clientY-b.top+drag.dy)/b.height*100)+'%';
+  });
+  board.addEventListener('pointerup',e=>{
+   const tapped=tap&&tap.id===e.pointerId?tap:null;tap=null;
+   if(!drag||drag.id!==e.pointerId){if(tapped&&!tapped.moved){suppressClick=true;activate(tapped.sq);}return;}
+   const moved=drag.moved;drag=null;piece.classList.remove('dragging');
+   if(board.hasPointerCapture(e.pointerId))board.releasePointerCapture(e.pointerId);
+   suppressClick=true;
+   if(!moved){selected=!selected;draw();return;}
+   const b=board.getBoundingClientRect(),x=Math.floor((e.clientX-b.left)/b.width*6),y=Math.floor((e.clientY-b.top)/b.height*6);
+   if(x<0||x>=6||y<0||y>=6||!game.moves(demo,state).includes(y*6+x)){draw(t.invalid);return;}
+   void move(y*6+x);
+  });
+  for(const event of ['pointercancel','lostpointercapture'])board.addEventListener(event,()=>{tap=null;if(drag){drag=null;piece.classList.remove('dragging');draw();}});
+  draw();
+ }
+ if(!reduced.matches&&typeof IntersectionObserver==='function'){
+  const observer=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){if(!reduced.matches)e.target.animate?.([{opacity:0,transform:'translateY(14px)'},{opacity:1,transform:'translateY(0)'}],{duration:650,easing:'cubic-bezier(.2,.7,.2,1)'});observer.unobserve(e.target);}},{threshold:.12});
+  document.querySelectorAll('.hero-copy,.hero-experience,.facts,section .wrap > h2,.showcase-head,.wz,.grid,.two').forEach(el=>observer.observe(el));
+ }
+ const header=document.querySelector('.site-header');
+ if(header){const update=()=>header.classList.toggle('scrolled',scrollY>24);addEventListener('scroll',update,{passive:true});update();}
+})({"demo":{"seq":["R","B","N"],"start":30,"coins":[32,17,28],"walls":[7,19,21],"path":[32,17,28]},"t":{"eyebrow":"Wandelzug von DenkArena","first":"Ein Zug.","second":"Eine andere Figur.","lead":"Sammle alle Münzen – und denke mit jeder neuen Figur weiter. Spiele Wandelzug direkt im Browser. In DenkArena warten außerdem Schach, Partieanalyse und weitere Denkspiele.","browser":"Wandelzug spielen","preview":"Die App ansehen","play":"Spielen","analyse":"Züge verstehen","rethink":"Wandelzug kennenlernen","demo":"Wandelzug","example":"Ein Beispiel zum Ausprobieren","instruction":"Sammle alle drei Münzen. Tippe die Figur an und dann ein markiertes Feld – oder zieh sie direkt dorthin.","next":"Tipp","replay":"Neu","again":"Noch einmal","undo":"Zug zurück","collected":"Münzen","moves":"Züge","best":"Bestwert: 3","names":["Turm","Läufer","Springer"],"start":"Wähle die Figur aus.","selected":"Wähle ein markiertes Feld.","invalid":"Dieser Zug ist nicht möglich.","hint":"Tipp: Ziehe nach","noHint":"Von hier gibt es keine Lösung. Nimm einen Zug zurück.","won":"Alle Münzen gesammelt!","coin":"Münze","wall":"Mauer","allowed":"erlaubtes Zielfeld","board":"Wandelzug spielen","states":["Der Turm zieht gerade. Zeige den ersten Zug.","Jetzt ist die Figur ein Läufer. Er zieht schräg.","Jetzt ist sie ein Springer. Er zieht im L.","Alle drei Münzen gesammelt. Die Folge beginnt wieder beim Turm."],"rule":"Nach jedem Zug eine andere Figur.","label":"Wandelzug-Beispiel mit drei Münzen und einer wechselnden Figur"}},{moves:demoMoves,after:demoAfter,solve:demoSolve});})();</script>
 </body></html>
