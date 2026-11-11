@@ -1,16 +1,15 @@
-# Website-Aktualisierung zu DenkArena 1.0.43
+# Website-Upload für 1.0.46
 
-Diese 11 Dateien einzeln ins Website-Repository `denkarena.github.io` hochladen. Dort jeweils ins Hauptverzeichnis legen und vorhandene Dateien ersetzen. Dafür auf GitHub „Add file“ → „Upload files“ wählen und alle 11 auf einmal hineinziehen.
+Diese 6 Dateien in `denkarena.github.io` ersetzen. Die Ordnerstruktur ist dieselbe wie hier, `chess.woff2` gehört in den Ordner `fonts/`.
 
-**Nicht** den ganzen Ordner `site/` hochladen und nichts löschen. Der Ordner `snowdial/` auf der Website bleibt so unberührt.
-
-| Datei | Änderung gegenüber der Live-Seite (geprüft am 09.11.2026) |
+| Datei | Warum |
 |---|---|
-| `legal.json` | Lizenzen: Urheberrecht, neue Fremdbestandteile, vollständiger Apache-2.0-Text. Impressum: ©-Zeile. Datenschutz und Nutzungsbedingungen unverändert. |
-| `index.html`, `en.html` | Fußzeile „© 2026 Erdi Karasungur“ statt „© 2026 DenkArena“. Snowdial-Links bleiben enthalten. |
-| `impressum.html`, `legal-notice.html` | ©-Absatz und ©-Fußzeile |
-| `datenschutz.html`, `privacy.html`, `nutzungsbedingungen.html`, `terms.html`, `konto-loeschen.html`, `delete-account.html` | nur ©-Fußzeile |
+| `index.html`, `en.html` | Startseite (DE/EN): Wandelzug-Vorschau mit den neuen DenkArena-Figuren |
+| `wandelzug.html` | Wandelzug im Browser: neue Figuren |
+| `p.html` | Partie-Link-Seite: Figurenschrift mit den neuen Figuren |
+| `fonts/chess.woff2` | eigene Figurenschrift statt Noto (aus `scripts/figuren/build-figuren.py`) |
+| `legal.json` | Lizenzen: Noto-Schrift entfernt, weil die App sie nicht mehr enthält |
 
-`p.html` und `wandelzug.html` sind identisch mit der Live-Seite und werden deshalb nicht mit hochgeladen.
-
-Danach prüfen: `https://denkarena.com/legal.json` sollte „Apache License 2.0“ enthalten. In der App unter Einstellungen → Lizenzen steht der Text dann auch bei Internetverbindung.
+- Alles andere ist unverändert.
+- Der Ordner `stockfish/` ist bereits live und muss nicht erneut hochgeladen werden.
+- Die Reihenfolge ist egal. Die Seiten funktionieren auch, wenn sie vor der App-Version live gehen.
