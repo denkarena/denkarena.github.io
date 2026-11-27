@@ -1,0 +1,50 @@
+/* Website-Rahmen um die echte Schachoberfläche; keine Änderungen am App-Layout. */
+html,body{height:auto;min-height:100%;overflow:auto;overscroll-behavior:auto}
+body{position:static;inset:auto;background:#0f1513}
+.demo-header,.demo-layout,.demo-footer{width:100%;max-width:1240px;margin:0 auto;padding-left:32px;padding-right:32px}
+.demo-header{display:flex;align-items:center;justify-content:space-between;gap:18px;padding-top:12px;padding-bottom:12px}
+.demo-brand{display:inline-flex;align-items:center;gap:10px;color:var(--text);text-decoration:none;font:400 25px var(--f-brand)}
+.demo-language{position:relative;display:block;flex:none}
+.demo-language:after{content:'';position:absolute;width:8px;height:8px;border-right:1.5px solid var(--brass-hi);border-bottom:1.5px solid var(--brass-hi);transform:rotate(45deg);right:18px;top:19px;pointer-events:none}
+.demo-language select{display:block;appearance:none;-webkit-appearance:none;min-height:48px;max-width:220px;padding:10px 44px 10px 16px;border:1px solid var(--line-2);border-radius:14px;background:var(--surface-2);color:var(--text);font:inherit;cursor:pointer}
+.demo-layout{display:grid;grid-template-columns:minmax(0,1fr) 540px;gap:60px;align-items:center;padding-top:0;padding-bottom:16px;min-height:calc(100dvh - 112px)}
+.demo-copy{min-width:0;padding-bottom:20px}
+.demo-copy .eyebrow{text-transform:none;letter-spacing:0;font-size:13px;font-weight:500;color:var(--brass)}
+.demo-copy h1{font:400 clamp(38px,3.65vw,54px)/1.15 var(--f-brand);margin:22px 0 28px;letter-spacing:-.02em}
+.demo-lead{font-size:19px;line-height:1.65;max-width:34em}
+.demo-local,.demo-full{font-size:12px;line-height:1.7;color:var(--muted);max-width:38em}
+.demo-local{margin-top:22px}.demo-full{margin-top:28px}
+.demo-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.demo-actions .btn{min-height:48px;padding:12px 17px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.demo-actions a.btn,.demo-actions a.btn:visited{color:var(--text)}
+.demo-app{min-width:0;border:1px solid #2c3930;border-radius:28px;overflow:hidden;box-shadow:0 30px 80px #0006;background:var(--bg)}
+.demo-app #app{width:100%;max-width:none;height:min(760px,calc(100dvh - 132px));min-height:610px;margin:0}
+.demo-app:has(.lobby:not(.hidden)) #app{height:auto;min-height:0}
+.demo-app #view:has(.lobby:not(.hidden)){flex:none;overflow:visible}
+.demo-app .topbar{flex:none}.demo-app .topbar h2{flex:1;margin:0;font-size:23px;font-weight:650;letter-spacing:.03em}
+.demo-app #view{padding-bottom:12px;scrollbar-width:thin;scrollbar-color:var(--line-2) transparent}
+.demo-app .lobby{padding-top:14px}
+.demo-app .lobby .lb-footer{position:static;padding-top:20px}.demo-app .lobby .lb-resume{width:100%;margin-top:12px}
+.demo-app .stagebar{display:flex;gap:3px}.demo-app .stagebar i{flex:1}
+.demo-footer{display:flex;flex-wrap:wrap;gap:16px;padding-top:8px;padding-bottom:12px;font-size:12px;line-height:20px;color:var(--muted)}
+.demo-footer a{color:inherit}.demo-footer .demo-license{margin-right:auto}
+.modal{z-index:100}.modal .modal-card{max-height:calc(100dvh - 32px)}
+#toast{z-index:110}
+@media(max-width:999px){
+ .demo-header,.demo-layout,.demo-footer{padding-left:16px;padding-right:16px}
+ .demo-header{padding-top:12px;padding-bottom:14px}.demo-brand{font-size:22px}.demo-brand .logo{width:26px;height:26px}
+ .demo-layout{grid-template-columns:minmax(0,1fr);gap:28px;min-height:0;padding-top:0}
+ .demo-app{grid-row:1;width:min(540px,100%);justify-self:center;border-radius:20px}
+ .demo-app #app{height:min(740px,calc(100svh - 100px));min-height:540px}
+ .demo-copy{grid-row:2;max-width:620px;justify-self:center;width:100%;padding:0 4px}
+ .demo-copy h1{font-size:36px;margin:14px 0 20px}.demo-lead{font-size:17px}
+ .demo-footer{font-size:11px}.demo-language select{max-width:180px;min-height:44px;padding-left:12px}
+}
+@media(max-width:359px){
+ .demo-header,.demo-layout,.demo-footer{padding-left:10px;padding-right:10px}
+ .demo-header{gap:8px}.demo-brand{font-size:20px;gap:6px}.demo-brand .logo{width:23px;height:23px}
+ .demo-language select{max-width:146px;font-size:13px;padding-right:34px}.demo-language:after{right:14px}
+ .demo-app #view{padding-left:10px;padding-right:10px}.demo-app .topbar{padding-left:12px;padding-right:12px}
+ .demo-copy h1{font-size:32px}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important}}
